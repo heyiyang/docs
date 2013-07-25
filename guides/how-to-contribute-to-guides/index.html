@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/docs/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>How to Contribute to Guides - Koding Community Docs
+    </title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body class="content-wrap article-detail">
+    <header class="header">
+      <h1>How to Contribute to Guides</h1>
+    </header>
+    <div id="sidebar"><ul>
+<li><a href="/docs/">Home</a></li>
+<li><a href="/docs/#frequently-asked-questions">FAQ</a></li>
+<li><a href="/docs/#feature-exploration">Feature Exploration</a></li>
+<li><a href="https://github.com/koding/docs/wiki">Wiki</a></li>
+<li><a href="https://github.com/koding/docs/issues/new">Submit an Issue</a></li>
+</ul>
+
+    </div>
+    <div id="content">
+      <article class="article">
+        <section class="content"><p>In this guide, we will get a bit meta and talk about how to write guides.
+We&#39;ll cover the <em>“Mission Statement”</em> and the basic process of how to
+Fork, Commit, and make a Pull Request on the official Koding Docs repo. Basic
+understanding of Git is required, but if there is any confusion on the
+Pull Request process hopefully this Guide will help you overcome that.
+Beware, this is a long guide, as we cover a lot of general&nbsp;details.</p>
+<p>So, lets get&nbsp;started!</p>
+<p><a name="mission" class="anchor"></a></p>
+<h2>Mission&nbsp;Statement</h2>
+<p>While the <a href="https://github.com/koding/docs/wiki">Koding Docs Wiki</a> is great for general and quickly evolving
+data, things can get messy. Keeping guides consistent and stable can be
+difficult, as none of the Wiki is really “controlled”. Consistency
+has to be enforced by reverting bad changes, rather than attempting to always
+add positive changes. So, these guides focus on that one aspect that
+the Wiki fails&nbsp;at.</p>
+<p>The Guides should be guides only. The general rule of thumb would be:
+If i make a video to be paired with the Guide, would you want to watch it?
+If you submit a table of Keyboard Shortcuts, would you <em>(or anyone for that
+matter)</em> want to sit and listen to a person list them off in video form?
+Probably not. Tutorial guides make sense for ordered instructions, or
+something very error prone, but not so much for simple factual data.
+Put that on <a href="https://github.com/koding/docs/wiki">the Wiki</a>.</p>
+<p>Lastly, Guides need to relate to Koding somehow. If the issue(s) trying
+to be resolved in the guide do not relate to Koding, why is it in these docs?
+If you have a wordpress setting that you are confused about, go lookup
+the Wordpress documentation. Now, if you have a problem installing wordpress
+due to Kodings pre-configured Apache settings, then maybe a guide would
+fit quite well on the Koding Docs. Make&nbsp;sense?</p>
+<p>We don&#39;t mean to come off as controlling, and we would really love your
+contribution to these Docs, but control is the core of what separates
+the Guides from the Wiki and it is how we expect to preserve quality.&nbsp;:)</p>
+<p><a name="whatyouwillneed" class="anchor"></a></p>
+<h2>What you will&nbsp;need</h2>
+<h3>Knowledge</h3>
+<p>Knowledge of a topic to the extent that you are able to write a clear and
+understandable tutorial on it. If applicable, you can even make a video for
+it, but otherwise I <em>(Lee Olayvar)</em> will do my best to make videos for
+all&nbsp;Guides.</p>
+<h3>Markdown</h3>
+<p>Knowledge of the <a href="http://daringfireball.net/projects/markdown/">Markdown Syntax</a>. The guides are all written in
+Markdown, and are compiled to <span class="caps">HTML</span> with the <a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>&nbsp;project.</p>
+<h3>Optional:&nbsp;Wintersmith</h3>
+<p>The actual site you see <a href="http://koding.github.io/docs/">here</a> is a static site compiled by
+<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>. You won‘t need to compile or anything, but you can install
+it if you like. An installation of Wintersmith would allow you to preview
+the rendered Markdown as you write, helping ensure formatting is as you expect.
+Again, this is entirely optional. As long as your markdown is valid, you don’t
+need Wintersmith. For instructions on how to install <span class="amp">&amp;</span> run Wintersmith,
+<a href="/docs/guides/how-to-contribute-to-guides/#wintersmithinstallation">see below</a>.</p>
+<p><a name="forking" class="anchor"></a></p>
+<h2>Editing</h2>
+<p>Within the project files you will see a folder called <code>contents</code>. This
+contains markdown and json documents, mostly markdown, that are compiled
+into&nbsp;<span class="caps">HTML</span>.</p>
+<p>To describe how to edit the docs, or to add your own guide, we will go
+over each scenario. Editing is pretty simple, so i&#39;ll try to be&nbsp;brief.</p>
+<h3>Editing an existing&nbsp;document</h3>
+<p>Pretend you see a typo on the website, how do you find that file in the
+Docs&nbsp;source?</p>
+<p>Everything in the main site is relative to the <code>contents/</code> source folder. So,
+<code>http://koding.github.io/docs/index.html</code> is <code>contents/index.md</code>. Documents
+within folders, are also relative. So
+<code>http://koding.github.io/docs/guides/setting-up-ftp/index.html</code> can be
+found at <code>contents/guides/setting-up-ftp/index.md</code>. Note how everything after
+<code>docs/</code> from the website, and <code>contents/</code> in the source folder, are the&nbsp;same!</p>
+<h3>Creating new&nbsp;documents</h3>
+<p>So, if we wanted to create a document under
+<code>http://koding.github.io/docs/guides/my-guide/</code>, we would create a folder
+called <code>contents/guides/my-guide</code> and put a file in the folder called 
+<code>index.md</code>. Everything in that markdown file would now be rendered to
+<code>http://koding.github.io/docs/guides/my-guide/index.html</code>, simple&nbsp;eh?</p>
+<p>Images can also be placed in that folder, allowing you to have
+images in your guide. Same goes for additional markdown pages! You can do
+pretty much anything you need to do&nbsp;:)</p>
+<h3>Consistency</h3>
+<p>Consistency is very important for these guides. So, look for patterns, and
+follow them. Don&#39;t put a new guide of yours at <code>contents/my-guide.md</code> because
+all of the other guides are found within <code>contents/guides/some-guide/index.md</code>.</p>
+<p>Doing things consistently and correctly are the only ways to get your
+content submitted to the official site, so <em>please</em>, if you are unsure of
+something <a href="https://github.com/koding/docs/issues/new">ask questions</a>!</p>
+<p><a name="forking" class="anchor"></a></p>
+<h2>Forking, Cloning, Committing, and Pull&nbsp;Requesting</h2>
+<p>This is a rather elementary section of the tutorial. If you know Git,
+please ignore this. If you only basically understand Git, this tutorial
+may help&nbsp;you.</p>
+<p>This general process will be pretty easy, but a few things are required on
+your own part. You must have an <span class="caps">SSH</span> Public Key for your VM added to GitHub. If
+you do not, and you need help doing this, please see
+<a href="https://help.github.com/articles/generating-ssh-keys#platform-linux">this tutorial</a>
+on generating your <span class="caps">SSH</span> Key, and adding it to Github. Note that Step 3,
+you can simply open the file <code>~/.ssh/id_rsa.pub</code> in the Koding Ace
+editor and copy the contents manually. No need for xclip&nbsp;:)</p>
+<p>If you&#39;re already familiar with Git, and have all that step,&nbsp;readon.</p>
+<ol>
+<li><p>Fork the <a href="http://koding.github.io/docs/">Koding/docs</a> repo by going to
+<a href="https://github.com/koding/docs/fork">this url</a> and select the little
+square with your name. This will fork the Koding repo.
+<img src="/docs/guides/how-to-contribute-to-guides/forkicon.png" alt="Fork Icon"></p>
+</li>
+<li><p>Next, we open up our Terminal and clone our forked repository! To do this,
+type the following command, replace <code>&lt;githubuser&gt;</code> with your Github&nbsp;username.</p>
+<pre><code>git clone git@github.com:&lt;githubuser&gt;/docs.git</code></pre>
+</li>
+<li><p>Now you should have a directory called <code>docs</code> wherever you ran that
+command. This is your local cloned repository, of your forked repo.
+cd into the directory with <code>cd docs</code>  </p>
+</li>
+<li><p>Create a new branch, titled with a short few-word description of your
+guide title, with <code>git checkout -b my-guide-name</code>.</p>
+</li>
+<li><p>Now to do the actual writing! If you need help figuring out what to edit,
+see the <a href="/docs/guides/how-to-contribute-to-guides/#editing">above step</a> on that&nbsp;subject.</p>
+</li>
+<li><p>Lets pretend you are done editing, you have previewed your Guide with
+Wintersmith and your guide is great! Now you want to commit your code
+to your local repo with <code>git add .</code> and <code>git commit</code>. After typing
+git commit, you will be presented with a terminal text editor, likely
+Nano or Vim. Type in a commit message, and save the&nbsp;message.</p>
+</li>
+<li><p>Now, you&#39;ll push your custom branch to your forked repo. This can be
+done with <code>git push -u origin my-guide-name</code>, where <code>my-guide-name</code> is the
+name of the branch that you checked out earlier. If you have an <span class="caps">SSH</span> password
+<em>(and you should)</em>, you&#39;ll have to enter it after this command. Enter it
+and proceed to the next&nbsp;step.</p>
+</li>
+<li><p>We&#39;re done with the Terminal stuff! Now visit your fork on
+Github, located at <code>https://github.com/&lt;githubuser&gt;/docs</code>, and click
+on the branch icon. Then select your branch from the dropdown list.
+After that, click the little green button next to your selected&nbsp;branch.</p>
+<p><img src="/docs/guides/how-to-contribute-to-guides/selectbranch.png" alt="Select Branch"></p>
+<p>This will compare your branch, to the master Koding/docs&nbsp;branch.</p>
+</li>
+<li><p>Last Step! From here, you simply click on <em>“create a pull request for
+this comparison”</em>.</p>
+<p><img src="/docs/guides/how-to-contribute-to-guides/createpullrequest.png" alt="Create Pull Request"></p>
+<p>Enter in a Title and comment, both describing what your branch is about
+and the instructions you provide. Then click <em>“Send pull request”</em>!</p>
+<p>You&#39;re done! Now there is a pull request, on the official repo, that
+will be reviewed by a core Koding/docs contributor. They may reply with
+additional notes that you should add to your branch if you formatted
+something incorrectly, or ask you to remove some modifications from your
+pull request, etc. It‘s a place for discussion, about the code you are
+adding to the official repo, so it’s quite important. Expect&nbsp;critiques!</p>
+<p>Once everything looks good, and assuming your edits match the Mission
+Statement, they will be merged in, and be on the <a href="http://koding.github.io/docs/">official site</a> within
+a couple&nbsp;days!</p>
+<p><strong>Note:</strong> Explaining Git to non-Git people can be a bit confusing, so
+<em>please</em> feel free to <a href="https://github.com/koding/docs/issues/new">comment</a> on this guide if you don&#39;t understand
+something. This specific section will likely need much iteration!&nbsp;Thanks!</p>
+</li>
+</ol>
+<p><a name="wintersmithinstallation" class="anchor"></a></p>
+<h2>Winstersmith Installation and&nbsp;Preview</h2>
+<h3>Installation</h3>
+<ol>
+<li><p>Type <code>sudo npm install -g wintersmith</code></p>
+</li>
+<li><p>You&#39;re&nbsp;done!</p>
+</li>
+</ol>
+<h3>Usage</h3>
+<p>Wintersmith can be used to preview your project as you type in&nbsp;guides.</p>
+<ol>
+<li><p>To start, open a terminal which will run the Wintersmith process. If
+you need access to the terminal while running Wintersmith, you can close it
+or simply open a second&nbsp;terminal.</p>
+</li>
+<li><p>Start wintersmith with <code>wintersmith preview</code>.</p>
+</li>
+<li><p>Wintersmith is now running on your <span class="caps">VM</span>, and you can preview it by going to
+<code>http://&lt;vm-Number&gt;.&lt;username&gt;.kd.io:8080/docs/</code>. Note, that Wintersmith&#39;s
+preview web server can be a bit picky. It requires the ending <code>/</code>.</p>
+</li>
+<li><p>Now simply make edits, and refresh the Wintersmith page to see them
+rendered! Easy eh?&nbsp;:)  </p>
+</li>
+</ol>
+</section>
+      </article>
+    </div>
+    <footer>
+      <div class="nav"><a href="">« Back to Home</a></div>
+      <section class="about"><h4>Having Trouble, or Is Something Outdated?</h4>
+<p>Koding changes quite rapidly, so if one of these guides are outdated,
+or if something just doesn&#39;t quite make sense to you, please
+<a href="https://github.com/koding/docs/issues/new">submit an issue</a> on the matter. Doing this will help me keep these guides
+up to date, and help any Koders using these guides after you. Thanks!</p>
+
+        <div class="credits"> This guide was created by <span class="author"><a href="https://github.com/leeolayvar">Lee Olayvar</a></span>
+        </div>
+      </section>
+      <section class="copy">
+        <p>created on&nbsp;<a href="https://koding.com">Koding</a>&nbsp;and powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a></p>
+      </section>
+    </footer>
+  </body>
+</html>
