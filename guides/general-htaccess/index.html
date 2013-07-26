@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/docs/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>General .htaccess - Koding Community Docs
+    </title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body class="content-wrap article-detail">
+    <header class="header">
+      <h1>General .htaccess</h1>
+    </header>
+    <div id="sidebar"><ul>
+<li><a href="/docs/">Home</a></li>
+<li><a href="/docs/#frequently-asked-questions">FAQ</a></li>
+<li><a href="/docs/#feature-exploration">Feature Exploration</a></li>
+<li><a href="https://github.com/koding/docs/wiki">Wiki</a></li>
+<li><a href="https://github.com/koding/docs/issues/new">Submit an Issue</a></li>
+</ul>
+
+    </div>
+    <div id="content">
+      <article class="article">
+        <section class="content"><p>Htaccess is a pretty well understood and standard feature among web hosts.
+Koding&#39;s .htaccess is no different than any other, so the plethora of
+tutorials and information out there will work perfectly fine on&nbsp;Koding.</p>
+<p>With that said, there are a couple Apache mods that people often expect to
+be enabled, but aren&#39;t by default on Koding. This guide will cover those,
+and any other Koding-specific htaccess&nbsp;issues.</p>
+<p><strong>Super Disclaimer:</strong> I am not very familiar with htaccess, so please feel
+free to <a href="https://github.com/koding/docs/issues/new">correct me</a> on any inaccuracies! Thanks! <em>~leeolayvar</em></p>
+<h2>Video</h2>
+<p><em>(No Video&nbsp;Yet)</em></p>
+<h2>General .htaccess&nbsp;Instructions</h2>
+<p><a name="modrewrite" class="anchor"></a></p>
+<h3>RewriteEngine <span class="amp">&amp;</span>&nbsp;mod_rewrite</h3>
+<p>For the sake of discussion, lets say i have two Koding domains
+<code>http://username.kd.io</code> and <code>http://my.name.is.username.kd.io</code>. How would
+i forward the first to the&nbsp;second?</p>
+<p>Htaccess makes this pretty simple. Create a .htaccess file in your Web
+directory if you don&#39;t already have one
+<code>touch ~/Web/.htaccess &amp;&amp; chmod 664 ~/Web/.htaccess</code> and add the
+following&nbsp;RewriteRule:</p>
+<pre><code>RewriteEngine On
+RewriteCond %{HTTP_HOST} ^username.kd.io [NC]
+RewriteRule ^(.*) http://my.name.is.username.kd.io/$1 [R=301]</code></pre>
+<p>But wait, if we go to <code>http://username.kd.io</code> now we are presented with
+the following&nbsp;error:</p>
+<pre><code>Internal Server Error
+
+The server encountered an internal error or misconfiguration and was unable to complete your request.
+
+Please contact the server administrator, webmaster@localhost and inform them of the time the error occurred, and anything you might have done that may have caused the error.
+
+More information about this error may be available in the server error log.</code></pre>
+<p>The reason for this is that mod_rewrite is not enabled by default. The fix
+for this is insanely easy, run the following&nbsp;command:</p>
+<pre><code>sudo a2enmod rewrite &amp;&amp; sudo service apache2 restart</code></pre>
+<p>This uses the command <code>a2enmod</code> to enable mod_rewrite, and then restarts
+apache. Now if we go to <code>http://username.kd.io</code> we are redirected to
+<code>http://my.name.is.username.kd.io</code>.&nbsp;Yay!</p>
+<!--
+## Additional Resources
+
+If you are looking for .htaccess tutorials, the following links may be
+handy. Feel free to [submit a link][0] if you know of a good tutorial!
+
+- 
+-->
+
+
+
+</section>
+      </article>
+    </div>
+    <footer>
+      <div class="nav"><a href="">« Back to Home</a></div>
+      <section class="about"><h4>Having Trouble, or Is Something Outdated?</h4>
+<p>Koding changes quite rapidly, so if one of these guides are outdated,
+or if something just doesn&#39;t quite make sense to you, please
+<a href="https://github.com/koding/docs/issues/new">submit an issue</a> on the matter. Doing this will help me keep these guides
+up to date, and help any Koders using these guides after you. Thanks!</p>
+
+        <div class="credits"> This guide was created by <span class="author"><a href="https://github.com/leeolayvar">Lee Olayvar</a></span>
+        </div>
+      </section>
+      <section class="copy">
+        <p>created on&nbsp;<a href="https://koding.com">Koding</a>&nbsp;and powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a></p>
+      </section>
+    </footer>
+  </body>
+</html>
