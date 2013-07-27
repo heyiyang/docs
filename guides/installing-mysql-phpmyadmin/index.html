@@ -22,6 +22,19 @@
 <li><a href="https://github.com/koding/docs/issues/new">Submit an Issue</a></li>
 </ul>
 
+      <h4>Guide Links</h4>
+      <ul>
+        <li><a href="/docs/guides/installing-mysql-phpmyadmin/#video">Video</a>
+        </li>
+        <li><a href="/docs/guides/installing-mysql-phpmyadmin/#what-you-will-need">What you will need</a>
+        </li>
+        <li><a href="/docs/guides/installing-mysql-phpmyadmin/#steps-for-installing-with-the-koding-app">Koding App Installation</a>
+        </li>
+        <li><a href="/docs/guides/installing-mysql-phpmyadmin/#steps-for-manual-installation">Manual Installation</a>
+        </li>
+        <li><a href="/docs/guides/installing-mysql-phpmyadmin/#confirming-your-installation">Confirming your Installation</a>
+        </li>
+      </ul>
     </div>
     <div id="content">
       <article class="article">
@@ -30,14 +43,14 @@ the Application, and&nbsp;Manually.</p>
 <p><strong>Reminder</strong>: As with all of these tutorials, they assume that there are no
 conflicts. If you have previously attempted to install this software please
 remove it fully or understand that conflicts may occur. Thanks&nbsp;:)</p>
-<h2>Video</h2>
+<h2 id="video">Video</h2>
 <p>The following is an instructional video which approximately
 mirrors the steps below. It covers both App, and Manual,&nbsp;installations.</p>
 <iframe width="680" height="450" src="//www.youtube.com/embed/h_l6hElWoj4" frameborder="0" allowfullscreen></iframe>
 
 
 
-<h2>What you will&nbsp;need</h2>
+<h2 id="what-you-will-need">What you will&nbsp;need</h2>
 <p>MySQL and phpyMyAdmin installation only requires knowledge of your Koding
 username, your Koding password, and for phpMyAdmin, the <span class="caps">VM</span> connection url.
 Your VM url will look like <a href="http://username.kd.io/"><a href="http://username.kd.io">http://username.kd.io</a></a>,
@@ -45,7 +58,7 @@ Your VM url will look like <a href="http://username.kd.io/"><a href="http://user
 <a href="http://vm-1.username.kd.io/"><a href="http://vm-1.username.kd.io">http://vm-1.username.kd.io</a></a>, etc. If you have
 any questions on how you can find this, please watch the video, as i go
 over the What You Need section in the&nbsp;beginning.</p>
-<h2>Steps for Installing with the Koding&nbsp;App</h2>
+<h2 id="steps-for-installing-with-the-koding-app">Steps for Installing with the Koding&nbsp;App</h2>
 <p>The Koding App installation is the installation that most people will want.
 It&#39;s the easiest, but will only work for your first <span class="caps">VM</span> currently. If you
 need to install
@@ -95,7 +108,7 @@ connect to phpMyAdmin at the url
 <a href="http://username.kd.io/phpMyAdmin">http://<username>.kd.io/phpMyAdmin</a>!</p>
 </li>
 </ol>
-<h2>Steps for Manual&nbsp;Installation</h2>
+<h2 id="steps-for-manual-installation">Steps for Manual&nbsp;Installation</h2>
 <p>The manual steps only differ from the app steps by the first step. Due 
 to this, i am going to simply provide the first step, and steps #2-10 can be
 followed above in the <strong>“Steps for Installing with the Koding App”</strong>&nbsp;section.</p>
@@ -107,15 +120,15 @@ phpmyadmin. The command for that is as follows:
 <li><p>Follow App Installation steps above, #2 through #10&nbsp;:)</p>
 </li>
 </ol>
-<h2>Confirming your&nbsp;Installation</h2>
-<h3>Confirming&nbsp;MySQL</h3>
+<h2 id="confirming-your-installation">Confirming your&nbsp;Installation</h2>
+<h3 id="confirming-mysql">Confirming&nbsp;MySQL</h3>
 <p>You can connect to your MySQL server via the command line to ensure it is
 running, and you know the username <span class="amp">&amp;</span> password. To do this, type the following
 command: <code>mysql -uroot -p&lt;password&gt;</code>, where <code>&lt;password&gt;</code> is your password,
 without the brackets. If you are successful, you will be in the
 mysql client, your terminal will look like <code>mysql&gt;</code>, and your
 MySQL server is running successfully. To leave, press <strong>Ctrl-D</strong>.</p>
-<h3>Confirming&nbsp;phpMyAdmin</h3>
+<h3 id="confirming-phpmyadmin">Confirming&nbsp;phpMyAdmin</h3>
 <p>To confirm phpMyAdmin&#39;s correct installation, simply connect to
 <a href="http://username.kd.io/phpmyadmin"><a href="http://username.kd.io/phpmyadmin">http://username.kd.io/phpmyadmin</a></a>,
 or if you installed on the non-default <span class="caps">VM</span>, connect to the vm directly via
@@ -127,7 +140,7 @@ etc. If you see phpMyAdmin, you have successfully installed phpMyadmin&nbsp;:)</
     </div>
     <footer>
       <div class="nav"><a href="">« Back to Home</a></div>
-      <section class="about"><h4>Having Trouble, or Is Something Outdated?</h4>
+      <section class="about"><h4 id="having-trouble,-or-is-something-outdated?">Having Trouble, or Is Something Outdated?</h4>
 <p>Koding changes quite rapidly, so if one of these guides are outdated,
 or if something just doesn&#39;t quite make sense to you, please
 <a href="https://github.com/koding/docs/issues/new">submit an issue</a> on the matter. Doing this will help me keep these guides

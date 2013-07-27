@@ -22,6 +22,19 @@
 <li><a href="https://github.com/koding/docs/issues/new">Submit an Issue</a></li>
 </ul>
 
+      <h4>Guide Links</h4>
+      <ul>
+        <li><a href="/docs/guides/how-to-contribute-to-guides/#mission-statement">Mission Statement</a>
+        </li>
+        <li><a href="/docs/guides/how-to-contribute-to-guides/#what-you-will-need">What you will need</a>
+        </li>
+        <li><a href="/docs/guides/how-to-contribute-to-guides/#editing">Editing</a>
+        </li>
+        <li><a href="/docs/guides/how-to-contribute-to-guides/#forking,-cloning,-committing,-and-pull-requesting">Forking &amp; Pull Requesting</a>
+        </li>
+        <li><a href="/docs/guides/how-to-contribute-to-guides/#wintersmith-installation-and-preview">Wintersmith Preview</a>
+        </li>
+      </ul>
     </div>
     <div id="content">
       <article class="article">
@@ -32,8 +45,7 @@ understanding of Git is required, but if there is any confusion on the
 Pull Request process hopefully this Guide will help you overcome that.
 Beware, this is a long guide, as we cover a lot of general&nbsp;details.</p>
 <p>So, lets get&nbsp;started!</p>
-<p><a name="mission" class="anchor"></a></p>
-<h2>Mission&nbsp;Statement</h2>
+<h2 id="mission-statement">Mission&nbsp;Statement</h2>
 <p>While the <a href="https://github.com/koding/docs/wiki">Koding Docs Wiki</a> is great for general and quickly evolving
 data, things can get messy. Keeping guides consistent and stable can be
 difficult, as none of the Wiki is really “controlled”. Consistency
@@ -56,32 +68,30 @@ fit quite well on the Koding Docs. Make&nbsp;sense?</p>
 <p>We don&#39;t mean to come off as controlling, and we would really love your
 contribution to these Docs, but control is the core of what separates
 the Guides from the Wiki and it is how we expect to preserve quality.&nbsp;:)</p>
-<p><a name="whatyouwillneed" class="anchor"></a></p>
-<h2>What you will&nbsp;need</h2>
-<h3>Knowledge</h3>
+<h2 id="what-you-will-need">What you will&nbsp;need</h2>
+<h3 id="knowledge">Knowledge</h3>
 <p>Knowledge of a topic to the extent that you are able to write a clear and
 understandable tutorial on it. If applicable, you can even make a video for
 it, but otherwise I <em>(Lee Olayvar)</em> will do my best to make videos for
 all&nbsp;Guides.</p>
-<h3>Markdown</h3>
+<h3 id="markdown">Markdown</h3>
 <p>Knowledge of the <a href="http://daringfireball.net/projects/markdown/">Markdown Syntax</a>. The guides are all written in
 Markdown, and are compiled to <span class="caps">HTML</span> with the <a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>&nbsp;project.</p>
-<h3>Optional:&nbsp;Wintersmith</h3>
+<h3 id="optional:-wintersmith">Optional:&nbsp;Wintersmith</h3>
 <p>The actual site you see <a href="http://koding.github.io/docs/">here</a> is a static site compiled by
 <a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>. You won‘t need to compile or anything, but you can install
 it if you like. An installation of Wintersmith would allow you to preview
 the rendered Markdown as you write, helping ensure formatting is as you expect.
 Again, this is entirely optional. As long as your markdown is valid, you don’t
 need Wintersmith. For instructions on how to install <span class="amp">&amp;</span> run Wintersmith,
-<a href="/docs/guides/how-to-contribute-to-guides/#wintersmithinstallation">see below</a>.</p>
-<p><a name="forking" class="anchor"></a></p>
-<h2>Editing</h2>
+<a href="/docs/guides/how-to-contribute-to-guides/#wintersmith-installation-and-preview">see below</a>.</p>
+<h2 id="editing">Editing</h2>
 <p>Within the project files you will see a folder called <code>contents</code>. This
 contains markdown and json documents, mostly markdown, that are compiled
 into&nbsp;<span class="caps">HTML</span>.</p>
 <p>To describe how to edit the docs, or to add your own guide, we will go
 over each scenario. Editing is pretty simple, so i&#39;ll try to be&nbsp;brief.</p>
-<h3>Editing an existing&nbsp;document</h3>
+<h3 id="editing-an-existing-document">Editing an existing&nbsp;document</h3>
 <p>Pretend you see a typo on the website, how do you find that file in the
 Docs&nbsp;source?</p>
 <p>Everything in the main site is relative to the <code>contents/</code> source folder. So,
@@ -90,7 +100,7 @@ within folders, are also relative. So
 <code>http://koding.github.io/docs/guides/setting-up-ftp/index.html</code> can be
 found at <code>contents/guides/setting-up-ftp/index.md</code>. Note how everything after
 <code>docs/</code> from the website, and <code>contents/</code> in the source folder, are the&nbsp;same!</p>
-<h3>Creating new&nbsp;documents</h3>
+<h3 id="creating-new-documents">Creating new&nbsp;documents</h3>
 <p>So, if we wanted to create a document under
 <code>http://koding.github.io/docs/guides/my-guide/</code>, we would create a folder
 called <code>contents/guides/my-guide</code> and put a file in the folder called 
@@ -99,15 +109,14 @@ called <code>contents/guides/my-guide</code> and put a file in the folder called
 <p>Images can also be placed in that folder, allowing you to have
 images in your guide. Same goes for additional markdown pages! You can do
 pretty much anything you need to do&nbsp;:)</p>
-<h3>Consistency</h3>
+<h3 id="consistency">Consistency</h3>
 <p>Consistency is very important for these guides. So, look for patterns, and
 follow them. Don&#39;t put a new guide of yours at <code>contents/my-guide.md</code> because
 all of the other guides are found within <code>contents/guides/some-guide/index.md</code>.</p>
 <p>Doing things consistently and correctly are the only ways to get your
 content submitted to the official site, so <em>please</em>, if you are unsure of
 something <a href="https://github.com/koding/docs/issues/new">ask questions</a>!</p>
-<p><a name="forking" class="anchor"></a></p>
-<h2>Forking, Cloning, Committing, and Pull&nbsp;Requesting</h2>
+<h2 id="forking,-cloning,-committing,-and-pull-requesting">Forking, Cloning, Committing, and Pull&nbsp;Requesting</h2>
 <p>This is a rather elementary section of the tutorial. If you know Git,
 please ignore this. If you only basically understand Git, this tutorial
 may help&nbsp;you.</p>
@@ -175,23 +184,22 @@ a couple&nbsp;days!</p>
 something. This specific section will likely need much iteration!&nbsp;Thanks!</p>
 </li>
 </ol>
-<p><a name="wintersmithinstallation" class="anchor"></a></p>
-<h2>Winstersmith Installation and&nbsp;Preview</h2>
-<h3>Installation</h3>
+<h2 id="wintersmith-installation-and-preview">Wintersmith Installation and&nbsp;Preview</h2>
+<h3 id="installation">Installation</h3>
 <ol>
-<li><p>Type <code>sudo npm install -g wintersmith</code></p>
+<li><p>Navigate to the docs repo directory and type <code>npm install</code></p>
 </li>
 <li><p>You&#39;re&nbsp;done!</p>
 </li>
 </ol>
-<h3>Usage</h3>
-<p>Wintersmith can be used to preview your project as you type in&nbsp;guides.</p>
+<h3 id="usage">Usage</h3>
+<p>Wintersmith can be used to preview your project as you write&nbsp;guides.</p>
 <ol>
 <li><p>To start, open a terminal which will run the Wintersmith process. If
 you need access to the terminal while running Wintersmith, you can close it
 or simply open a second&nbsp;terminal.</p>
 </li>
-<li><p>Start wintersmith with <code>wintersmith preview</code>.</p>
+<li><p>Start wintersmith with <code>npm run-script preview</code>.</p>
 </li>
 <li><p>Wintersmith is now running on your <span class="caps">VM</span>, and you can preview it by going to
 <code>http://&lt;vm-Number&gt;.&lt;username&gt;.kd.io:8080/docs/</code>. Note, that Wintersmith&#39;s
@@ -206,7 +214,7 @@ rendered! Easy eh?&nbsp;:)  </p>
     </div>
     <footer>
       <div class="nav"><a href="">« Back to Home</a></div>
-      <section class="about"><h4>Having Trouble, or Is Something Outdated?</h4>
+      <section class="about"><h4 id="having-trouble,-or-is-something-outdated?">Having Trouble, or Is Something Outdated?</h4>
 <p>Koding changes quite rapidly, so if one of these guides are outdated,
 or if something just doesn&#39;t quite make sense to you, please
 <a href="https://github.com/koding/docs/issues/new">submit an issue</a> on the matter. Doing this will help me keep these guides

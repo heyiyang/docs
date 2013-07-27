@@ -22,6 +22,21 @@
 <li><a href="https://github.com/koding/docs/issues/new">Submit an Issue</a></li>
 </ul>
 
+      <h4>Guide Links</h4>
+      <ul>
+        <li><a href="/docs/guides/setting-up-ftp/#video">Video</a>
+        </li>
+        <li><a href="/docs/guides/setting-up-ftp/#what-you-will-need">What you will need</a>
+        </li>
+        <li><a href="/docs/guides/setting-up-ftp/#steps-for-installation-with-koding-app">Koding App Installation</a>
+        </li>
+        <li><a href="/docs/guides/setting-up-ftp/#steps-for-manual-installation">Manual Installation</a>
+        </li>
+        <li><a href="/docs/guides/setting-up-ftp/#confirming-your-installation">Confirming your Installation</a>
+        </li>
+        <li><a href="/docs/guides/setting-up-ftp/#additional-resources">Additional resources</a>
+        </li>
+      </ul>
     </div>
     <div id="content">
       <article class="article">
@@ -33,21 +48,21 @@ settings. In this guide, we are using
 <p><strong>Reminder</strong>: As with all of these tutorials, they assume that there are no
 conflicts. If you have previously attempted to install this software please
 remove it fully or understand that conflicts may occur. Thanks&nbsp;:)</p>
-<h2>Video</h2>
+<h2 id="video">Video</h2>
 <p>The following is an instructional video which approximately
 mirrors the steps below. It covers both App, and Manual,&nbsp;installations.</p>
 <iframe width="680" height="450" src="//www.youtube.com/embed/1Boyf-vYXUI" frameborder="0" allowfullscreen></iframe>
 
 
 
-<h2>What you will&nbsp;need</h2>
+<h2 id="what-you-will-need">What you will&nbsp;need</h2>
 <p>In this tutorial you will need three things. Your Koding username,
 Koding password, and your <span class="caps">VM</span>&nbsp;Number.</p>
 <p>To find your <span class="caps">VM</span> number, open your terminal for the VM you wish to install
 PureFTPd on, and look for the <em>username@vm-0:~$</em>, where <em>vm-0</em>, <em>vm-1</em>,
 <em>vm-2</em>, etc, is your vm number. This will be needed, to connect to your
 PureFTPd&nbsp;server.</p>
-<h2>Steps for Installation with Koding&nbsp;App</h2>
+<h2 id="steps-for-installation-with-koding-app">Steps for Installation with Koding&nbsp;App</h2>
 <p>The Koding App installation is the installation that most people will want.
 It&#39;s the easiest, but will only work for your first <span class="caps">VM</span> currently. If you
 need to install
@@ -69,7 +84,7 @@ the <strong>Install</strong>&nbsp;button.</p>
 we will be handling the rest of the commands for this&nbsp;installation.</p>
 </li>
 <li><p>Enter your Koding password, which is your root&nbsp;password.</p>
-<h4>Possible Gotcha: Unmet&nbsp;Dependancies?</h4>
+<h4 id="possible-gotcha:-unmet-dependancies?">Possible Gotcha: Unmet&nbsp;Dependancies?</h4>
 <p>If, after entering your password, you run into a screen that looks like this:
 <img src="/docs/guides/setting-up-ftp/unmetdeps.png" alt="Unment Dependencies"></p>
 <p>Type in the following&nbsp;command</p>
@@ -104,7 +119,7 @@ please refer to the video or the image&nbsp;below.</p>
 <p><img src="/docs/guides/setting-up-ftp/ftpclientsettings.png" alt="FTP Client Settings"></p>
 </li>
 </ol>
-<h2>Steps for Manual&nbsp;Installation</h2>
+<h2 id="steps-for-manual-installation">Steps for Manual&nbsp;Installation</h2>
 <p>Installing PureFTPd is probably the easiest “manual” installation there is.
 It is just one command, and the rest is identical to the App Installer above.
 So after Step 1, refer to the above steps. The video also covers this
@@ -115,14 +130,14 @@ installation, in basic&nbsp;detail.</p>
 <p>Then proceed to Step #3 in the above Koding App Installation&nbsp;steps.</p>
 </li>
 </ol>
-<h2>Confirming your&nbsp;Installation</h2>
+<h2 id="confirming-your-installation">Confirming your&nbsp;Installation</h2>
 <p>Connecting to your <span class="caps">FTP</span> Server with your FTP Client is the easiest way
 to confirm it is working, but what if that fails? Is your Server&nbsp;running?</p>
 <p>To find this out, run the following command: <code>ps aux | grep ftpd</code>. This
 will print the running processes that contain the text “ftpd”. What you are
 looking for, is a line containing <strong>“<span class="caps">PURE</span>-FTPD (SERVER)”</strong>. If you see that,
 your server is running, and the problem is likely not your&nbsp;server.</p>
-<h2>Additional&nbsp;Resources</h2>
+<h2 id="additional-resources">Additional&nbsp;Resources</h2>
 <ul>
 <li><a href="https://filezilla-project.org/">FileZilla</a></li>
 <li><a href="https://filezilla-project.org/download.php?type=client">FileZilla&nbsp;Download</a></li>
@@ -132,7 +147,7 @@ your server is running, and the problem is likely not your&nbsp;server.</p>
     </div>
     <footer>
       <div class="nav"><a href="">« Back to Home</a></div>
-      <section class="about"><h4>Having Trouble, or Is Something Outdated?</h4>
+      <section class="about"><h4 id="having-trouble,-or-is-something-outdated?">Having Trouble, or Is Something Outdated?</h4>
 <p>Koding changes quite rapidly, so if one of these guides are outdated,
 or if something just doesn&#39;t quite make sense to you, please
 <a href="https://github.com/koding/docs/issues/new">submit an issue</a> on the matter. Doing this will help me keep these guides

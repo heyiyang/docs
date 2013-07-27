@@ -22,6 +22,19 @@
 <li><a href="https://github.com/koding/docs/issues/new">Submit an Issue</a></li>
 </ul>
 
+      <h4>Guide Links</h4>
+      <ul>
+        <li><a href="/docs/guides/installing-wordpress/#video">Video</a>
+        </li>
+        <li><a href="/docs/guides/installing-wordpress/#what-you-will-need">What you will need</a>
+        </li>
+        <li><a href="/docs/guides/installing-wordpress/#steps-for-installation">Steps for Installation</a>
+        </li>
+        <li><a href="/docs/guides/installing-wordpress/#confirming-your-installation">Confirming your Installation</a>
+        </li>
+        <li><a href="/docs/guides/installing-wordpress/#additional-resources">Additional resources</a>
+        </li>
+      </ul>
     </div>
     <div id="content">
       <article class="article">
@@ -31,9 +44,9 @@ some users requested this&nbsp;:)</p>
 <p><strong>Reminder</strong>: As with all of these tutorials, they assume that there are no
 conflicts. If you have previously attempted to install this software please
 remove it fully or understand that conflicts may occur. Thanks&nbsp;:)</p>
-<h2>Video</h2>
+<h2 id="video">Video</h2>
 <p><strong><em>(Video Coming&nbsp;Soon)</em></strong></p>
-<h2>What you will&nbsp;need</h2>
+<h2 id="what-you-will-need">What you will&nbsp;need</h2>
 <p>You will need to know a few things for this&nbsp;tutorial:</p>
 <ul>
 <li>Your Koding password <em>(which is also your Root&nbsp;pass)</em></li>
@@ -44,7 +57,7 @@ remove it fully or understand that conflicts may occur. Thanks&nbsp;:)</p>
 <p>You will also need to have MySQL previously installed. If you need to
 install MySQL please check out
 [[this tutorial|MySQL phpMyAdmin&nbsp;Installation]].</p>
-<h2>Steps for&nbsp;Installation</h2>
+<h2 id="steps-for-installation">Steps for&nbsp;Installation</h2>
 <p>In this tutorial we are going to start from a fresh installation, and
 install it into the root&nbsp;folder.</p>
 <ol>
@@ -116,11 +129,11 @@ where <code>&lt;username&gt;</code> is your&nbsp;username.</p>
 submit. You can leave the database host as <code>localhost</code> and the table prefix
 as <code>wp_</code>. An example of this filled out with the information from my above
 example is below.&nbsp;[[setup-config.png]]</p>
-<h4>Possible Gotcha: Sorry, but I can’t write the wp-config.php&nbsp;file.</h4>
+<h4 id="possible-gotcha:-sorry,-but-i-can’t-write-the-wp-config.php-file.">Possible Gotcha: Sorry, but I can’t write the wp-config.php&nbsp;file.</h4>
 <p>If you receive the following message after pressing submit, your <code>chmod</code>
 is incorrectly configured. Please revisit Step 03, then retry
 this&nbsp;step.</p>
-<h4>Possible Gotcha: Error establishing a database&nbsp;connection</h4>
+<h4 id="possible-gotcha:-error-establishing-a-database-connection">Possible Gotcha: Error establishing a database&nbsp;connection</h4>
 <p>If you receive an error establishing a database connection, ensure
 that your host is localhost, and your database name, username, and pass
 are correct. If you need to revisit Step 05 you can, then revisit this&nbsp;step.</p>
@@ -131,11 +144,11 @@ is ready to be installed via the automatic configuration. Press <strong>Run
 the install</strong> and proceed with the normal Wordpress&nbsp;installation.</p>
 </li>
 </ol>
-<h2>Confirming your&nbsp;Installation</h2>
+<h2 id="confirming-your-installation">Confirming your&nbsp;Installation</h2>
 <p>After Step 07, you can confirm your working wordpress by simple visiting
 your connection url <em>(eg: <code>http://username.kd.io</code>)</em>. You should be
 redirected to <code>/wp-admin/install.php</code> and can continue with the&nbsp;setup.</p>
-<h2>Additional&nbsp;Resources</h2>
+<h2 id="additional-resources">Additional&nbsp;Resources</h2>
 <ul>
 <li><a href="http://wordpress.org/">WordPress.org</a></li>
 <li><a href="http://wordpress.org/download/">Wordpress&nbsp;Download</a></li>
@@ -145,7 +158,7 @@ redirected to <code>/wp-admin/install.php</code> and can continue with the&nbsp;
     </div>
     <footer>
       <div class="nav"><a href="">« Back to Home</a></div>
-      <section class="about"><h4>Having Trouble, or Is Something Outdated?</h4>
+      <section class="about"><h4 id="having-trouble,-or-is-something-outdated?">Having Trouble, or Is Something Outdated?</h4>
 <p>Koding changes quite rapidly, so if one of these guides are outdated,
 or if something just doesn&#39;t quite make sense to you, please
 <a href="https://github.com/koding/docs/issues/new">submit an issue</a> on the matter. Doing this will help me keep these guides
