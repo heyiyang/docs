@@ -46,7 +46,12 @@ some users requested this&nbsp;:)</p>
 conflicts. If you have previously attempted to install this software please
 remove it fully or understand that conflicts may occur. Thanks&nbsp;:)</p>
 <h2 id="video">Video</h2>
-<p><strong><em>(Video Coming&nbsp;Soon)</em></strong></p>
+<p>The following is an instructional video which approximately
+mirrors the steps&nbsp;below.</p>
+<iframe width="680" height="450" src="//www.youtube.com/embed/gJurcN1Vgws" frameborder="0" allowfullscreen></iframe>
+
+
+
 <h2 id="what-you-will-need">What you will&nbsp;need</h2>
 <p>You will need to know a few things for this&nbsp;tutorial:</p>
 <ul>
@@ -57,7 +62,7 @@ remove it fully or understand that conflicts may occur. Thanks&nbsp;:)</p>
 </ul>
 <p>You will also need to have MySQL previously installed. If you need to
 install MySQL please check out
-[[this tutorial|MySQL phpMyAdmin&nbsp;Installation]].</p>
+<a href="/docs/guides/installing-mysql-phpmyadmin/">this tutorial</a>.</p>
 <h2 id="steps-for-installation">Steps for&nbsp;Installation</h2>
 <p>In this tutorial we are going to start from a fresh installation, and
 install it into the root&nbsp;folder.</p>
@@ -69,10 +74,6 @@ with the following command:
 <li><p>Next, we&#39;ll backup the <code>~/Web</code> directory, and replace it with <code>~/wordpress</code>
 with the following command:
 <code>mv Web Web.bkp &amp;&amp; mv wordpress Web</code></p>
-</li>
-<li><p>Next, we need to copy the sample Wordpress config, so that we can run
-the config setup later. Enter the following command:
-<code>cp Web/wp-config-sample.php Web/wp-config.php</code></p>
 </li>
 <li><p>Next, we&#39;re going to set the <code>chmod</code> of the directory so that Wordpress
 can write it&#39;s only configuration file. To do that,&nbsp;run:</p>
@@ -92,9 +93,14 @@ Root password, <em>not your Koding password</em>.</p>
 copy and modify. Take care to replace <code>&lt;dbname&gt;</code> with the name of the
 database you would like Wordpress to use, same for <code>&lt;wpuser&gt;</code> and <code>&lt;wppass&gt;</code>.
 The commands&nbsp;are:</p>
-<p><code>CREATE DATABASE &lt;dbname&gt;;</code></p>
-<pre><code>GRANT ALL PRIVILEGES ON &lt;dbname&gt;.* TO &quot;&lt;wpuser&gt;&quot;@&quot;localhost&quot; IDENTIFIED BY &quot;&lt;dbpass&gt;&quot;;</code></pre>
-<p><code>FLUSH PRIVILEGES;</code></p>
+<ol>
+<li><p><code>CREATE DATABASE &lt;dbname&gt;;</code></p>
+</li>
+<li><p><code>GRANT ALL PRIVILEGES ON &lt;dbname&gt;.* TO &quot;&lt;wpuser&gt;&quot;@&quot;localhost&quot; IDENTIFIED BY &quot;&lt;dbpass&gt;&quot;;</code></p>
+</li>
+<li><p><code>FLUSH PRIVILEGES;</code></p>
+</li>
+</ol>
 <p>An example of what this might look like if i created the database
 <code>wordpress</code> with the username <code>wpusername</code> and the password <code>wpuserpass</code>
 can be seen&nbsp;below:</p>
@@ -123,13 +129,15 @@ Query OK, 0 rows affected (0.00 sec)
 mysql&gt;</code></pre>
 </li>
 <li><p>We&#39;re almost done! Now we can navigate to our wordpress config setup.
-To do this, navigate to
-<code>http://&lt;username&gt;.kd.io/wp-admin/setup-config.php?step=1</code>.
-where <code>&lt;username&gt;</code> is your&nbsp;username.</p>
+To do this, navigate to our <span class="caps">VM</span> Connection url <em>(eg: <a href="http://username.kd.io">http://username.kd.io</a>,
+<a href="http://vm-1.username.kd.io">http://vm-1.username.kd.io</a>, etc)</em>. Next, press the <strong>“Create a
+Configuration File”</strong> button, then the <strong>“Lets Go”</strong> button and
+you will be presented with your configuration&nbsp;options.</p>
 <p>Enter in the database, wpuser, and wppass that we created above and press
 submit. You can leave the database host as <code>localhost</code> and the table prefix
 as <code>wp_</code>. An example of this filled out with the information from my above
-example is below.&nbsp;[[setup-config.png]]</p>
+example is below.
+<img src="/docs/guides/installing-wordpress/setupconfig.png" alt="Setup Config"></p>
 <h4 id="possible-gotcha:-sorry,-but-i-can’t-write-the-wp-config.php-file.">Possible Gotcha: Sorry, but I can’t write the wp-config.php&nbsp;file.</h4>
 <p>If you receive the following message after pressing submit, your <code>chmod</code>
 is incorrectly configured. Please revisit Step 03, then retry
