@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/docs/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Koding Overview - Koding Community Docs
+    </title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body class="content-wrap article-detail">
+    <header class="header">
+      <h1>Koding Overview</h1>
+    </header>
+    <div id="sidebar"><ul>
+<li><a href="/docs/">Home</a></li>
+<li><a href="/docs/guides/koding-overview/">Koding Overview</a></li>
+<li><a href="/docs/#frequently-asked-questions">FAQ</a></li>
+<li><a href="/docs/#feature-exploration">Feature Exploration</a></li>
+<li><a href="https://github.com/koding/docs/wiki">Wiki</a></li>
+<li><a href="https://github.com/koding/docs/issues/new">Submit an Issue</a></li>
+</ul>
+
+    </div>
+    <div id="content">
+      <article class="article">
+        <section class="content"><p>Koding offers nearly unlimited possibilities; so many in fact, that people
+often misunderstand what Koding is being designed for. Knowing the goals
+of the platform will help you make the most of it and not feel misled when
+something isn&#39;t as&nbsp;expected.</p>
+<p>This guide will briefly go over what Koding is, identify some
+misconceptions people may have, and why certain restrictions and choices
+were&nbsp;made.</p>
+<h2 id="what-is-koding?">What Is&nbsp;Koding?</h2>
+<p>Koding is an online development environment with the goal of simplifying
+worldwide development and providing free computation and development to&nbsp;everyone.</p>
+<p>It does this by offering Free VMs for development to anyone.
+The Koding VMs provide you with a <em>real</em> Ubuntu <span class="caps">OS</span>, with a <em>real</em> Terminal,
+and allow you to work on <em>real</em> code. Python, <span class="caps">PHP</span>, C++, C, it doesn&#39;t matter.
+Even better, they are online. Accessible from anywhere in the world. Even
+sharable with&nbsp;teams.</p>
+<h2 id="is-koding-a-production-host?">Is Koding a Production&nbsp;Host?</h2>
+<p>Koding is first and foremost a Development Environment. All features have been
+tailored with this in mind and evidence of this is reflected in all of the
+features you see implemented. Lets highlight some of these&nbsp;items.</p>
+<h3 id="vms-shutdown-after-logout">VMs Shutdown After&nbsp;Logout</h3>
+<p>Approximately 20 minutes after you log out, your Free VMs will shut down. Why?
+Koding‘s development focus is not centered around hosting your blog/site.
+Koding is here to enable you and to help you make great things. Attempting
+to be yet another host in a sea of perfectly capable production hosts
+won’t help achieve that&nbsp;goal.</p>
+<p>Another benefit of this system, is that it helps avoid security concerns that
+collectively harm us all. There are plenty of users out there who have used
+Koding to host dangerous applications. Phishing, scamming, spamming, all
+of it. This directly harms all of us, by giving Koding a bad name,
+wasting resources, and hindering a service that we are trying to be productive
+with. It&#39;s no surprise that restrictions need to be put in place to inhibit
+this behavior, for the benefit of&nbsp;everyone.</p>
+<p><strong>Note:</strong> In the future Paid Always-On VMs will be an option. This is
+currently not available&nbsp;though.</p>
+<h3 id="cpu-bursts-vs-sustained"><span class="caps">CPU</span> Bursts vs&nbsp;Sustained</h3>
+<p>Koding wants to help you get work done, and get work done fast. Things like
+compilers have a lot to compute, but in short sporadic bursts. Koding&#39;s <span class="caps">CPU</span>
+allocation has been tailored with this in mind. It wants you to compute what
+you need, as soon as possible. It is not tailored for a long running
+process that expect heavy and consistent usage, such as a Minecraft&nbsp;server.</p>
+<h3 id="raw-ubuntu-os">Raw Ubuntu&nbsp;<span class="caps">OS</span></h3>
+<p>These days a lot of hosting platforms are heavily optimized for
+their specific niche(s). They streamline the process of hosting your
+language or application style of choice, which gives you added
+stability and performance gains. Examples of this are the plethora
+of Apache-<span class="caps">PHP</span> hosts, Nodejitsu, Google App Engine, Heroku, AppFog,
+and a nearly limitless amount of&nbsp;others.</p>
+<p>Why is this? Well, production hosting is hard, and there are obvious
+benefits to letting someone else do it. The idea of uploading your
+php site to a standard php host is easy. The idea of buying a
+dedicated server, setting up Apache, firewalls, updates, etc, just
+seems a bit crazy in comparison. On top of that, what about
+load balancing and CDNs? Doing it all yourself can be&nbsp;hard.</p>
+<p>Well, Koding gives you that raw machine. It‘s not trying to make
+production hosting for you, but rather it’s giving you a completely
+open and powerful environment to <em>make stuff</em>! So by all means
+<em>make</em> your Wordpress blog on Koding, and if you really want
+to host it on Koding wait a while and buy an Always-On <span class="caps">VM</span>. Just
+be aware of the design&nbsp;goals.</p>
+</section>
+      </article>
+    </div>
+    <footer>
+      <div class="nav"><a href="">« Back to Home</a></div>
+      <section class="about"><h4 id="having-trouble,-or-is-something-outdated?">Having Trouble, or Is Something Outdated?</h4>
+<p>Koding changes quite rapidly, so if one of these guides are outdated,
+or if something just doesn&#39;t quite make sense to you, please
+<a href="https://github.com/koding/docs/issues/new">submit an issue</a> on the matter. Doing this will help me keep these guides
+up to date, and help any Koders using these guides after you. Thanks!</p>
+
+        <div class="credits"> This guide was created by <span class="author"><a href="https://github.com/leeolayvar">Lee Olayvar</a></span>
+        </div>
+      </section>
+      <section class="copy">
+        <p>created on&nbsp;<a href="https://koding.com">Koding</a>&nbsp;and powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a></p>
+      </section>
+    </footer>
+  </body>
+</html>
