@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/docs/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Koding Groups Overview - Koding Community Docs
+    </title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body class="content-wrap article-detail">
+    <header class="header">
+      <h1>Koding Groups Overview</h1>
+    </header>
+    <div id="sidebar"><ul>
+<li><a href="/docs/">Home</a></li>
+<li><a href="/docs/guides/koding-overview/">Koding Overview</a></li>
+<li><a href="/docs/#frequently-asked-questions">FAQ</a></li>
+<li><a href="/docs/#feature-exploration">Feature Exploration</a></li>
+<li><a href="https://github.com/koding/docs/wiki">Wiki</a></li>
+<li><a href="https://github.com/koding/docs/issues/new">Submit an Issue</a></li>
+</ul>
+
+    </div>
+    <div id="content">
+      <article class="article">
+        <section class="content"><p>Koding Groups are a core feature of Koding, and allow for a lot of versatility
+in group programming. It allows your development and team communication
+to be in one area, and even sharing the same machines if you use Shared&nbsp;VMs.</p>
+<p>This guide will go over the concepts of Koding Groups, and how to manage&nbsp;one.</p>
+<h2 id="what-are-groups?">What are&nbsp;Groups?</h2>
+<p>Koding Groups basically give you your own corner of Koding. They let you
+have you own Activity feed, to discuss anything, with all the features of
+the main Koding group. Tags, content types, VMs,&nbsp;etc.</p>
+<p>They give you and your team a section of Koding to be productive. The
+activity feed of your group can be public or private and you can even make
+<a href="/docs/guides/groups-overview/#shared-vms">Shared VMs</a>!</p>
+<p>Koding groups are being designed for any number of users. Your team,
+your class, your school or your company, anything will fit into a
+Koding&nbsp;group.</p>
+<h2 id="group-dashboard">Group&nbsp;Dashboard</h2>
+<p>Your Group Dashboard is the control center for your Group. It contains
+settings, invitations and&nbsp;permissions.</p>
+<p>To find this, go to your Group, and look in the lower left near Your Account.
+Above the Logout button, is a <strong>Group</strong> button. Click this, and you will be
+in your dashboard. Settings, invitations, permissions, all of these can
+be navigated on the&nbsp;left.</p>
+<h2 id="shared-vms">Shared&nbsp;VMs</h2>
+<p>Shared VMs are similar to Personal VMs, except that multiple users are on the
+same <span class="caps">VM</span>. Usage and resources are shared, but locations are not by&nbsp;default.</p>
+<h3 id="filesystem">Filesystem</h3>
+<p>The filesystem is a point of confusion for a lot of users. A user will often
+expect to be sharing the same home directory as another user. which
+is not the case by default.
+It is the same machine, but not the same home/user&nbsp;directories.</p>
+<p>For the sake of this explanation, lets say we have two users. <code>john</code> and
+<code>henry</code>, with a Shared <span class="caps">VM</span> of <code>shared-0.ourgroup.kd.io</code>.
+In the filesystem, Johns home directory is located at <code>/home/john</code>
+and Henrys is located at <code>/home/henry</code>. The actual <code>ourgroup</code> <span class="caps">VM</span> is located
+at <code>/home/ourgroup</code>.</p>
+<p>This seems pretty straight forward, but then the next common question is
+how can i connect to my Shared <span class="caps">VM</span> <code>~/Web</code> directory? In a shared <span class="caps">VM</span>, 
+<code>~/Web</code> directories are linked to <code>/home/&lt;groupname&gt;/Web/~&lt;username&gt;/</code>.</p>
+<p>So, in practice the connection addresses look like&nbsp;this:</p>
+<ul>
+<li><code>http://shared-0.ourgroup.kd.io</code> = <code>/home/ourgroup/Web</code></li>
+<li><code>http://shared-0.ourgroup.kd.io/~john</code> = <code>/home/john/Web</code></li>
+<li><code>http://shared-0.ourgroup.kd.io/~henry</code> = <code>/home/henry/Web</code></li>
+</ul>
+<h2 id="group-invitations">Group&nbsp;Invitations</h2>
+<p>Since groups can be private, you have multiple methods of inviting team
+members. The different ways you can invite are in place to support many
+different types of&nbsp;teams.</p>
+<p>Invitation settings can be found from your
+<a href="/docs/guides/groups-overview/#group-dashboard">Group Dashboard</a> and clicking on <strong>Invitations</strong>.</p>
+<h2 id="group-settings">Group&nbsp;Settings</h2>
+<p>Group Settings offer basic customization of a group. You can modify a groups
+name, description, readme, and listed <span class="amp">&amp;</span> visibility&nbsp;settings.</p>
+<h3 id="privacy-options">Privacy&nbsp;Options</h3>
+<p>Privacy has two options, Public and Private. This setting just controls
+a users ability to request an invite. Nothing&nbsp;more.</p>
+<p>So, if Privacy is set to <code>Public</code>, users can join themselves by pressing
+<em>“Join”</em>. If set to <code>Private</code>, users must request access by pressing the
+<em>“Request Access”</em>&nbsp;button.</p>
+<p><strong>Note:</strong> A Privacy setting of <code>Private</code> does not mean a random guest/member
+cannot view your Group. If you want to make your group unlisted and
+content invisible see the <a href="/docs/guides/groups-overview/#visibility-options">visiblity</a> and
+<a href="/docs/guides/groups-overview/#cactivity">CActivity</a> options&nbsp;below.</p>
+<h3 id="visibility-options">Visibility&nbsp;Options</h3>
+<p>Visiblity controls whether or not your Group will be listed in the main
+Group List and if content posted to your Group will also show up in the
+main Koding&nbsp;Feed.</p>
+<p>A setting of <code>visible</code> means that your group <em>will</em> show up in the group list
+and all content posted to your group will stream into the main Koding&nbsp;Feed.</p>
+<p>A setting of <code>hidden</code> means that your group will <em>not</em> show up in the
+Group List and content will not show up in the Koding&nbsp;Feed.</p>
+<h2 id="group-permissions">Group&nbsp;Permissions</h2>
+<p>Permissions are quite an extensive topic. In this guide we will focus
+on generally explaining Roles, Permissions, and how to assign them to&nbsp;users.</p>
+<h3 id="roles">Roles</h3>
+<p>Roles are given a set of permissions, such as read activity and read posts,
+and assigned to users of your Group. Allowing you to control what users with
+that role are able to do. Groups come with four roles by default, and can
+have additional roles&nbsp;added.</p>
+<p>To add a role, look for the <strong>Add Role</strong> button in the lower left of the
+permissions&nbsp;section.</p>
+<h3 id="permissions">Permissions</h3>
+<p>Permissions are assigned to roles, and then roles to users. Assigning a
+permission is quite simple, just check the box for that role. If that role
+has a checked box on a permission, then that role has that&nbsp;permission.</p>
+<p>For a table with the known permissions described, check out <a href="https://github.com/koding/docs/wiki/Group-Permissions">this wiki&nbsp;post</a></p>
+<p>Currently we will not go over all of the permissions, but in the future when
+more are implemented, as quite a few are not currently, we will put them
+in a table here and a video will be dedicated to&nbsp;them.</p>
+<h3 id="assigning-a-role">Assigning a&nbsp;Role</h3>
+<p>To assign a role, from your <a href="/docs/guides/groups-overview/#group-dashboard">Group Dashboard</a> hover
+over the user you want to assign a role to, and click <strong>Edit</strong>.
+From there, check the Role box of the role you wish to&nbsp;grant/deny.</p>
+<p>It&#39;s worth noting that the <strong>Guest</strong> and <strong>Member</strong> roles are automatically
+assigned/removed by&nbsp;Koding.</p>
+</section>
+      </article>
+    </div>
+    <footer>
+      <div class="nav"><a href="">« Back to Home</a></div>
+      <section class="about"><h4 id="having-trouble,-or-is-something-outdated?">Having Trouble, or Is Something Outdated?</h4>
+<p>Koding changes quite rapidly, so if one of these guides are outdated,
+or if something just doesn&#39;t quite make sense to you, please
+<a href="https://github.com/koding/docs/issues/new">submit an issue</a> on the matter. Doing this will help me keep these guides
+up to date, and help any Koders using these guides after you. Thanks!</p>
+
+        <div class="credits"> This guide was created by <span class="author"><a href="https://github.com/leeolayvar">Lee Olayvar</a></span> with contributions by <span class="contributor"><a href="http://andygold99.kd.io">Andy Gold</a></span>
+        </div>
+      </section>
+      <section class="copy">
+        <p>created on&nbsp;<a href="https://koding.com">Koding</a>&nbsp;and powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a></p>
+      </section>
+    </footer>
+  </body>
+</html>
