@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
-    <title>Installing Wordpress - Koding Community Docs
+    <title>Installing WordPress - Koding Community Docs
     </title>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body class="content-wrap article-detail">
     <header class="header">
-      <h1>Installing Wordpress</h1>
+      <h1>Installing WordPress</h1>
     </header>
     <div id="sidebar"><ul>
 <li><a href="/docs/">Home</a></li>
@@ -41,7 +41,7 @@
     </div>
     <div id="content">
       <article class="article">
-        <section class="content"><p>In this tutorial, we will we will go over the basics of getting wordpress
+        <section class="content"><p>In this tutorial, we will we will go over the basics of getting WordPress
 installed on Koding. Note that this is the same as on Ubuntu/etc, but
 some users requested this&nbsp;:)</p>
 <p><strong>Reminder</strong>: As with all of these tutorials, they assume that there are no
@@ -69,7 +69,7 @@ install MySQL please check out
 <p>In this tutorial we are going to start from a fresh installation, and
 install it into the root&nbsp;folder.</p>
 <ol>
-<li><p>We&#39;ll start by downloading and untaring Wordpress into ~/wordpress,
+<li><p>We&#39;ll start by downloading and untaring WordPress into ~/wordpress,
 with the following command:
 <code>curl wordpress.org/latest.tar.gz | tar xz</code></p>
 </li>
@@ -78,7 +78,7 @@ with the following command:
 <code>mv Web Web.bkp &amp;&amp; mv wordpress Web</code></p>
 </li>
 <li><p>Next, we&#39;re going to set the <code>chmod</code> of the directory so that Wordpress
-can write it&#39;s only configuration file. To do that,&nbsp;run:</p>
+can write its only configuration file. To do that,&nbsp;run:</p>
 <p><code>chmod 777 Web</code></p>
 </li>
 <li><p>By default, php5-mysql is also missing, so to install that enter:
@@ -130,7 +130,7 @@ Query OK, 0 rows affected (0.00 sec)
 
 mysql&gt;</code></pre>
 </li>
-<li><p>We&#39;re almost done! Now we can navigate to our wordpress config setup.
+<li><p>We&#39;re almost done! Now we can navigate to our WordPress config setup.
 To do this, navigate to our <span class="caps">VM</span> Connection url <em>(eg: <a href="http://username.kd.io">http://username.kd.io</a>,
 <a href="http://vm-1.username.kd.io">http://vm-1.username.kd.io</a>, etc)</em>. Next, press the <strong>“Create a
 Configuration File”</strong> button, then the <strong>“Lets Go”</strong> button and
@@ -152,20 +152,20 @@ are correct. If you need to revisit Step 05 you can, then revisit this&nbsp;step
 <li><p>All right sparky! If you have successfully received the message starting
 with <em>&quot;All right sparky!&quot;</em> then you&#39;re good to go! Your WordPress
 is ready to be installed via the automatic configuration. Press <strong>Run
-the install</strong> and proceed with the normal Wordpress&nbsp;installation.</p>
+the install</strong> and proceed with the normal WordPress&nbsp;installation.</p>
 </li>
 </ol>
 <h2 id="confirming-your-installation">Confirming your&nbsp;Installation</h2>
-<p>After Step 07, you can confirm your working wordpress by simple visiting
+<p>After Step 07, you can confirm your working WordPress by simple visiting
 your connection url <em>(eg: <code>http://username.kd.io</code>)</em>. You should be
 redirected to <code>/wp-admin/install.php</code> and can continue with the&nbsp;setup.</p>
 <h2 id="update-wordpress-and-plugins">Update WordPress and&nbsp;plugins</h2>
-<p>If you need to update Wordpress and its plugins or themes you can use <code>localhost</code> as the <strong>Hostname</strong>, <code>your Koding username</code> as <strong><span class="caps">FTP</span> Username</strong>,
+<p>If you need to update WordPress and its plugins or themes you can use <code>localhost</code> as the <strong>Hostname</strong>, <code>your Koding username</code> as <strong><span class="caps">FTP</span> Username</strong>,
 <code>your Koding password</code> as <strong><span class="caps">FTP</span> Password</strong> and you can leave <code>FTP</code> as <strong>Connection&nbsp;Type</strong></p>
 <h2 id="additional-resources">Additional&nbsp;Resources</h2>
 <ul>
 <li><a href="http://wordpress.org/">WordPress.org</a></li>
-<li><a href="http://wordpress.org/download/">Wordpress&nbsp;Download</a></li>
+<li><a href="http://wordpress.org/download/">WordPress&nbsp;Download</a></li>
 </ul>
 </section>
       </article>
