@@ -30,7 +30,9 @@
         </li>
         <li><a href="/docs/guides/ssh-into-your-vm/#what-you-will-need">What you will need</a>
         </li>
-        <li><a href="/docs/guides/ssh-into-your-vm/#tutorial-steps">Tutorial Steps</a>
+        <li><a href="/docs/guides/ssh-into-your-vm/#tutorial-steps-for-openssh-on-linux">Tutorial Steps for OpenSSH on Linux</a>
+        </li>
+        <li><a href="/docs/guides/ssh-into-your-vm/#tutorial-steps-for-putty-on-windows">Tutorial Steps for PuTTY on Windows</a>
         </li>
         <li><a href="/docs/guides/ssh-into-your-vm/#possible-gotchas">Possible Gotchas</a>
         </li>
@@ -45,7 +47,7 @@
         <section class="content"><p>In this tutorial, we will go over the steps to SSHing into your <span class="caps">VM</span>! This
 is a semi-experimental tutorial, so if you have any problems please make
 sure to
-<a href="https://github.com/leeolayvar/koding-unofficial/issues/new">submit an issue</a>
+<a href="https://github.com/koding/docs/issues/new">submit an issue</a>
 and we can help make this a rock solid tutorial for all skill levels&nbsp;:)</p>
 <p>Note that we will only be covering Unix based OSs. If someone wants to
 give me information on how this can be done on Windows, i&#39;ll be happy
@@ -60,6 +62,7 @@ mirrors the steps below. It covers both App, and Manual,&nbsp;installations.</p>
 
 
 
+
 <h2 id="what-you-will-need">What you will&nbsp;need</h2>
 <p>In this tutorial, i am going to use the terminology of “Home” and “Koding”
 machines. Home being whatever the machine you are using to connect to
@@ -69,13 +72,8 @@ Koding with. Koding being the machine that is receiving the connection.
 in <code>~/.ssh/id_rsa.pub</code>)</em>. If you need to generate one, please
 <a href="https://help.github.com/articles/generating-ssh-keys">refer to the Github tutorial on this</a>.
 You will also need your Username, and your <span class="caps">VM</span>&nbsp;Number.</p>
-<p>To find your <span class="caps">VM</span> number, open your terminal for the VM you wish to ssh into,
-and look for the <em>username@vm-0:~$</em>, where <em>vm-0</em>, <em>vm-1</em>,
-<em>vm-2</em>, etc, is your vm&nbsp;number.</p>
-<p><strong>Feedback</strong>: If you feel Generating an <span class="caps">SSH</span> Key would be very helpful on this
-tutorial, feel free to
-<a href="https://github.com/leeolayvar/koding-unofficial/issues/new">let me know</a>&nbsp;:)</p>
-<h2 id="tutorial-steps">Tutorial&nbsp;Steps</h2>
+<p>To find your <span class="caps">VM</span> number, review the <a href="/docs/guides/find-your-vm-number/">Find your <span class="caps">VM</span> Number</a>&nbsp;guide.</p>
+<h2 id="tutorial-steps-for-openssh-on-linux">Tutorial Steps for OpenSSH on&nbsp;Linux</h2>
 <ol>
 <li><p>First, copy your Public Key, usually found in <code>~/.ssh/id_rsa.pub</code>, and copy
 it in it&#39;s entirety! It will look something like&nbsp;this:</p>
@@ -119,6 +117,85 @@ everyone experiences it and it does not cause any problems.
 <a href="https://koding.com/kiwigeraint">@kiwigeraint</a> says to simply ignore it.&nbsp;:)</p>
 </li>
 </ol>
+<h2 id="tutorial-steps-for-putty-on-windows">Tutorial Steps for PuTTY on&nbsp;Windows</h2>
+<p>For this connection method, you will need the <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY <span class="caps">SSH</span> client suite</a>.
+Including the <code>putty.exe</code>, <code>plink.exe</code>, and <code>pageant.exe</code>.</p>
+<p><strong>Note:</strong> This PuTTY guide has only recently been published. If you are
+familiar with PuTTY and you think something should be changed, please
+<a href="https://github.com/koding/docs/issues/new">let me know</a>!</p>
+<ol>
+<li><p>Fire up <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTYgen</a>,
+the <span class="caps">SSH</span> key generator for the PuTTY suite. If you already have a private key,
+load it up; otherwise generate a new key pair. You&#39;ll end up with some
+gibberish, a fingerprint, and some&nbsp;settings.</p>
+<p><img src="/docs/guides/ssh-into-your-vm/puttygen.png" alt="PuTTYgen"></p>
+</li>
+<li><p>Copy the gibberish (your public key) to the <span class="caps">SSH</span> Keys section of <a href="https://koding.com/Account">your
+account</a>, as in
+<a href="/docs/guides/ssh-into-your-vm/#tutorial-steps-for-openssh-on-linux">Step #2 above</a>.
+Save your private key to someplace accessible; you&#39;ll need it&nbsp;later.</p>
+</li>
+<li><p>Start up <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY</a>
+and set the <em>Host Name (or <span class="caps">IP</span> address)</em> to the same <span class="caps">VM</span> name as&nbsp;above:</p>
+<p><code>vm-Number.&lt;username&gt;.koding.kd.io</code></p>
+<p><img src="/docs/guides/ssh-into-your-vm/puttysession.png" alt="PuTTY session"></p>
+</li>
+<li><p>In the <em>Category</em> menu on the left, select <em>Data</em> under <em>Connection</em>. Enter
+your Koding username in the <em>Auto-login username</em>&nbsp;box.</p>
+</li>
+<li><p>Select <em>Proxy</em> under <em>Connection</em>, and change the <em>Proxy type</em> to <em>Local</em>.
+Enter the following line (modified for your system) in the <em>Telnet command,
+or local proxy command</em>&nbsp;box:</p>
+<p><code>C:\your\path\to\plink.exe &lt;username&gt;@ssh.koding.com -nc %host:%port</code></p>
+<p><img src="/docs/guides/ssh-into-your-vm/puttyproxy.png" alt="PuTTY proxy"></p>
+</li>
+<li><p>Go back up to the <em>“Session”</em> settings and save this PuTTY
+configuration to a new session by typing a name into the <em>“Saved Sessions”</em>
+box, and clicking on <em>“Save”</em>.</p>
+</li>
+<li><p>In Step 7, we will cover setting up your Auth. This can be done two
+ways, and we will cover both. <strong>You only need to do one</strong> method!
+Pageant has been working for everyone, where as PuTTY-Auth has been
+a bit problematic but is shorter. Choose whichever you like, but if you
+have issues, try <a href="/docs/guides/ssh-into-your-vm/#pageant-auth">Pageant Auth</a>.</p>
+<h3 id="pageant-auth">Pageant&nbsp;Auth</h3>
+<p>Open <code>pageant.exe</code>. It will launch into your&nbsp;Taskbar.</p>
+<p><img src="/docs/guides/ssh-into-your-vm/pageanttaskbar.png" alt="Pageant Taskbar"></p>
+<p>Right click the Pageant icon in the taskbar, and select <em>“View Keys”</em>. From
+there, click the <em>“Add Key”</em> button. Navigate to the <strong>private</strong> key you
+saved from Step 2 and click <em>“Open”</em>. You should now have a key listed
+in your Pageant Key List. An example image is&nbsp;below.</p>
+<p><img src="/docs/guides/ssh-into-your-vm/pageantkeylist.png" alt="Pageant key List"></p>
+<p>If your key has been added to the Pageant Key List, close the&nbsp;window.</p>
+<h3 id="putty-auth">PuTTY&nbsp;Auth</h3>
+<p>Reopen PuTTY and select your Session, then click&nbsp;Load.</p>
+<p>Next, under the <em>Connection</em> menu, open up the <em><span class="caps">SSH</span></em> menu and select <em>Auth</em>.
+Enable the <em>Allow agent forwarding</em> checkbox. Under <em>Private key file for
+authentication</em>, browse to the private key you saved in Step&nbsp;2.</p>
+<p><img src="/docs/guides/ssh-into-your-vm/puttyauth.png" alt="PuTTY SSH auth"></p>
+<p>Next, Plink needs to know the explicit location of your key. So go back to
+<em>“Proxy”</em> under <em>“Connection”</em> and look for the <em>“Telnet command,
+or local proxy command”</em> box. Currently, it should look like&nbsp;this:</p>
+<p><code>C:\your\path\to\plink.exe &lt;username&gt;@ssh.koding.com -nc %host:%port</code></p>
+<p>Modify it, by adding your private key location. So, it will look like&nbsp;this:</p>
+<p><code>C:\your\path\to\plink.exe -i c:\path\to\private\key.ppk &lt;username&gt;@ssh.koding.com -nc %host:%port</code></p>
+</li>
+<li><p>You&#39;re done! You can now connect to Koding via PuTTY. To connect, you can
+either right click the Pageant Icon and under <em>“Saved Sessions”</em>, click
+on your Saved&nbsp;Session.</p>
+<p>To connect from PuTTY itself, open PuTTY and select your Saved Session from
+the list, then click&nbsp;Open.</p>
+<p>An example of a successful Koding Connection is&nbsp;below.</p>
+<p><img src="/docs/guides/ssh-into-your-vm/puttysuccess.png" alt="Success"></p>
+</li>
+</ol>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<p>If you have trouble connecting, try running the Plink proxy command in <code>verbose</code>
+mode (<code>-v</code>) from a console (outside PuTTY itself). You&#39;ll need to manually specify the
+private key with <code>-i</code>.</p>
+<p><code>&gt; C:\path\to\plink.exe -v -i c:\path\to\private\key.ppk &lt;username&gt;@ssh.koding.com -nc vm-Number.&lt;username&gt;.koding.kd.io:22</code></p>
+<p>If it ends with a line resembling <code>SSH-2.0-OpenSSH_5.9p1</code> then your connection
+should be good, and the problem is likely&nbsp;elsewhere.</p>
 <h2 id="confirming-your-installation">Confirming your&nbsp;Installation</h2>
 <p>The best way to confirm your installation is simply by connecting to your
 Koding <span class="caps">VM</span>. For information on this, see Step #3&nbsp;above.</p>
@@ -163,7 +240,7 @@ or if something just doesn&#39;t quite make sense to you, please
 <a href="https://github.com/koding/docs/issues/new">submit an issue</a> on the matter. Doing this will help me keep these guides
 up to date, and help any Koders using these guides after you. Thanks!</p>
 
-        <div class="credits"> This guide was created by <span class="author"><a href="https://github.com/leeolayvar">Lee Olayvar</a></span>
+        <div class="credits"> This guide was created by <span class="author"><a href="https://github.com/leeolayvar">Lee Olayvar</a></span> with contributions by <span class="contributor"><a href="http://ramblinations.com">Gemma Lynn (ellotheth)</a></span>
         </div>
       </section>
       <section class="copy">
