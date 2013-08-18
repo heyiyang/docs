@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
     <link rel="stylesheet" href="css/main.css">
   </head>
-  <body class="content-wrap article-detail">
+  <body class="content-wrap article-detail"><a href="https://github.com/koding/docs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
     <header class="header">
       <h1>How to Contribute to Guides</h1>
     </header>
@@ -31,8 +31,6 @@
         <li><a href="/docs/guides/how-to-contribute-to-guides/#what-you-will-need">What you will need</a>
         </li>
         <li><a href="/docs/guides/how-to-contribute-to-guides/#editing">Editing</a>
-        </li>
-        <li><a href="/docs/guides/how-to-contribute-to-guides/#forking,-cloning,-committing,-and-pull-requesting">Forking &amp; Pull Requesting</a>
         </li>
         <li><a href="/docs/guides/how-to-contribute-to-guides/#wintersmith-installation-and-preview">Wintersmith Preview</a>
         </li>
@@ -118,75 +116,6 @@ all of the other guides are found within <code>contents/guides/some-guide/index.
 <p>Doing things consistently and correctly are the only ways to get your
 content submitted to the official site, so <em>please</em>, if you are unsure of
 something <a href="https://github.com/koding/docs/issues/new">ask questions</a>!</p>
-<h2 id="forking,-cloning,-committing,-and-pull-requesting">Forking, Cloning, Committing, and Pull&nbsp;Requesting</h2>
-<p>This is a rather elementary section of the tutorial. If you know Git,
-please ignore this. If you only basically understand Git, this tutorial
-may help you. The <a href="/docs/guides/how-to-contribute-to-guides/#additional-resources">Additional Resources</a> section
-also contains some Git tutorials and guides that may be of&nbsp;help.</p>
-<p>This general process will be pretty easy, but a few things are required on
-your own part. You must have an <span class="caps">SSH</span> Public Key for your VM added to GitHub. If
-you do not and you need help doing this, please see
-<a href="https://help.github.com/articles/generating-ssh-keys#platform-linux">this tutorial</a>
-on generating your <span class="caps">SSH</span> Key, and adding it to Github. <em> <strong>!Note!</strong> Ignore the xclip information, just use Ace Editor to copy
-your <span class="caps">SSH</span>&nbsp;Key.</em></p>
-<ol>
-<li><p>Fork the <a href="http://koding.github.io/docs/">Koding/docs</a> repo by going to
-<a href="https://github.com/koding/docs/fork">this url</a> and select the little
-square with your name. This will fork the Koding repo.
-<img src="/docs/guides/how-to-contribute-to-guides/forkicon.png" alt="Fork Icon"></p>
-</li>
-<li><p>Next, we open up our Terminal and clone our forked repository! To do this,
-type the following command, replace <code>&lt;githubuser&gt;</code> with your Github&nbsp;username.</p>
-<pre><code>git clone git@github.com:&lt;githubuser&gt;/docs.git</code></pre>
-</li>
-<li><p>Now you should have a directory called <code>docs</code> wherever you ran that
-command. This is your local cloned repository, of your forked repo.
-cd into the directory with <code>cd docs</code>  </p>
-</li>
-<li><p>Create a new branch, titled with a short few-word description of your
-guide title, with <code>git checkout -b my-guide-name</code>.</p>
-</li>
-<li><p>Now to do the actual writing! If you need help figuring out what to edit,
-see the <a href="/docs/guides/how-to-contribute-to-guides/#editing">above step</a> on that&nbsp;subject.</p>
-</li>
-<li><p>Lets pretend you are done editing, you have previewed your Guide with
-Wintersmith and your guide is great! Now you want to commit your code
-to your local repo with <code>git add .</code> and <code>git commit</code>. After typing
-git commit, you will be presented with a terminal text editor, likely
-Nano or Vim. Type in a commit message, and save the&nbsp;message.</p>
-</li>
-<li><p>Now, you&#39;ll push your custom branch to your forked repo. This can be
-done with <code>git push -u origin my-guide-name</code>, where <code>my-guide-name</code> is the
-name of the branch that you checked out earlier. If you have an <span class="caps">SSH</span> password
-<em>(and you should)</em>, you&#39;ll have to enter it after this command. Enter it
-and proceed to the next&nbsp;step.</p>
-</li>
-<li><p>We&#39;re done with the Terminal stuff! Now visit your fork on
-Github, located at <code>https://github.com/&lt;githubuser&gt;/docs</code>, and click
-on the branch icon. Then select your branch from the dropdown list.
-After that, click the little green button next to your selected&nbsp;branch.</p>
-<p><img src="/docs/guides/how-to-contribute-to-guides/selectbranch.png" alt="Select Branch"></p>
-<p>This will compare your branch, to the master Koding/docs&nbsp;branch.</p>
-</li>
-<li><p>Last Step! From here, you simply click on <em>“create a pull request for
-this comparison”</em>.</p>
-<p><img src="/docs/guides/how-to-contribute-to-guides/createpullrequest.png" alt="Create Pull Request"></p>
-<p>Enter in a Title and comment, both describing what your branch is about
-and the instructions you provide. Then click <em>“Send pull request”</em>!</p>
-<p>You&#39;re done! Now there is a pull request, on the official repo, that
-will be reviewed by a core Koding/docs contributor. They may reply with
-additional notes that you should add to your branch if you formatted
-something incorrectly, or ask you to remove some modifications from your
-pull request, etc. It‘s a place for discussion, about the code you are
-adding to the official repo, so it’s quite important. Expect&nbsp;critiques!</p>
-<p>Once everything looks good, and assuming your edits match the Mission
-Statement, they will be merged in, and be on the <a href="http://koding.github.io/docs/">official site</a> within
-a couple&nbsp;days!</p>
-<p><strong>Note:</strong> Explaining Git to non-Git people can be a bit confusing, so
-<em>please</em> feel free to <a href="https://github.com/koding/docs/issues/new">comment</a> on this guide if you don&#39;t understand
-something. This specific section will likely need much iteration!&nbsp;Thanks!</p>
-</li>
-</ol>
 <h2 id="wintersmith-installation-and-preview">Wintersmith Installation and&nbsp;Preview</h2>
 <h3 id="installation">Installation</h3>
 <ol>

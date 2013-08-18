@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
     <link rel="stylesheet" href="css/main.css">
   </head>
-  <body class="content-wrap article-detail">
+  <body class="content-wrap article-detail"><a href="https://github.com/koding/docs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
     <header class="header">
       <h1>SSH Into Your VM</h1>
     </header>
@@ -49,9 +49,6 @@ is a semi-experimental tutorial, so if you have any problems please make
 sure to
 <a href="https://github.com/koding/docs/issues/new">submit an issue</a>
 and we can help make this a rock solid tutorial for all skill levels&nbsp;:)</p>
-<p>Note that we will only be covering Unix based OSs. If someone wants to
-give me information on how this can be done on Windows, i&#39;ll be happy
-to add a windows&nbsp;section!</p>
 <p><strong>Reminder</strong>: As with all of these tutorials, they assume that there are no
 conflicts. If you have previously attempted to install this software please
 remove it fully or understand that conflicts may occur. Thanks&nbsp;:)</p>
@@ -66,14 +63,19 @@ remove it fully or understand that conflicts may occur. Thanks&nbsp;:)</p>
 
 
 <h2 id="what-you-will-need">What you will&nbsp;need</h2>
-<p>In this tutorial, i am going to use the terminology of “Home” and “Koding”
+<p>In this tutorial, I am going to use the terminology of “Home” and “Koding”
 machines. Home being whatever the machine you are using to connect to
 Koding with. Koding being the machine that is receiving the connection.
 <code>Home -&gt; Koding</code>.</p>
-<p>On the home machine, you will need a public rsa key <em>(usually found
-in <code>~/.ssh/id_rsa.pub</code>)</em>. If you need to generate one, please
-<a href="https://help.github.com/articles/generating-ssh-keys">refer to the Github tutorial on this</a>.
-You will also need your Username, and your <span class="caps">VM</span>&nbsp;Number.</p>
+<p>On the Home machine, you will need your <span class="caps">SSH</span> public/private keys. On Linux (or
+Cygwin on Windows), your SSH keys are usually found at <code>~/.ssh/id_rsa</code> and
+<code>~/.ssh/id_rsa.pub</code>. On Windows (without Cygwin), you may need to generate new
+keys with
+<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTYGen</a>. If
+you need to generate a new key pair, please refer to a
+<a href="https://help.github.com/articles/generating-ssh-keys">Linux</a> or
+<a href="http://katsande.com/using-puttygen-to-generate-ssh-private-public-keys">Windows</a>
+tutorial, as appropriate.  You will also need your Koding Username, and your <span class="caps">VM</span>&nbsp;Number.</p>
 <p>To find your <span class="caps">VM</span> number, review the <a href="/docs/guides/find-your-vm-number/">Find your <span class="caps">VM</span> Number</a>&nbsp;guide.</p>
 <h2 id="tutorial-steps-for-openssh-on-linux">Tutorial Steps for OpenSSH on&nbsp;Linux</h2>
 <ol>
@@ -120,25 +122,21 @@ everyone experiences it and it does not cause any problems.
 </li>
 </ol>
 <h2 id="tutorial-steps-for-putty-on-windows">Tutorial Steps for PuTTY on&nbsp;Windows</h2>
-<p>For this connection method, you will need the <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY <span class="caps">SSH</span> client suite</a>.
-Including the <code>putty.exe</code>, <code>plink.exe</code>, and <code>pageant.exe</code>.</p>
+<p>For this connection method, you will need the <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY <span class="caps">SSH</span> client suite</a>:
+<code>putty.exe</code>, <code>plink.exe</code>, and <code>pageant.exe</code>.</p>
 <p><strong>Note:</strong> This PuTTY guide has only recently been published. If you are
 familiar with PuTTY and you think something should be changed, please
 <a href="https://github.com/koding/docs/issues/new">let me know</a>!</p>
 <ol>
-<li><p>Fire up <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTYgen</a>,
-the <span class="caps">SSH</span> key generator for the PuTTY suite. If you already have a private key,
-load it up; otherwise generate a new key pair. You&#39;ll end up with some
-gibberish, a fingerprint, and some&nbsp;settings.</p>
-<p><img src="/docs/guides/ssh-into-your-vm/puttygen.png" alt="PuTTYgen"></p>
+<li><p>Copy the text contents of your PuTTY public key. If you are not sure what or
+where it is, please refer to <a href="/docs/guides/ssh-into-your-vm/#what-you-will-need">What you will need</a>.</p>
 </li>
-<li><p>Copy the gibberish (your public key) to the <span class="caps">SSH</span> Keys section of <a href="https://koding.com/Account">your
-account</a>, as in
-<a href="/docs/guides/ssh-into-your-vm/#tutorial-steps-for-openssh-on-linux">Step #2 above</a>.
-Save your private key to someplace accessible; you&#39;ll need it&nbsp;later.</p>
+<li><p>As in Step #2 of the <a href="/docs/guides/ssh-into-your-vm/#tutorial-steps-for-openssh-on-linux">Linux guide</a>
+above, paste the entirety of your public key into the <em><span class="caps">SSH</span> Keys</em> section of
+your Koding account&nbsp;settings.</p>
 </li>
-<li><p>Start up <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY</a>
-and set the <em>Host Name (or <span class="caps">IP</span> address)</em> to the same <span class="caps">VM</span> name as&nbsp;above:</p>
+<li><p>Start up <code>putty.exe</code> and set the <em>Host Name (or <span class="caps">IP</span> address)</em> to the same <span class="caps">VM</span>
+hostname as&nbsp;above:</p>
 <p><code>vm-Number.&lt;username&gt;.koding.kd.io</code></p>
 <p><img src="/docs/guides/ssh-into-your-vm/puttysession.png" alt="PuTTY session"></p>
 </li>
@@ -164,16 +162,16 @@ have issues, try <a href="/docs/guides/ssh-into-your-vm/#pageant-auth">Pageant A
 <p>Open <code>pageant.exe</code>. It will launch into your&nbsp;Taskbar.</p>
 <p><img src="/docs/guides/ssh-into-your-vm/pageanttaskbar.png" alt="Pageant Taskbar"></p>
 <p>Right click the Pageant icon in the taskbar, and select <em>“View Keys”</em>. From
-there, click the <em>“Add Key”</em> button. Navigate to the <strong>private</strong> key you
-saved from Step 2 and click <em>“Open”</em>. You should now have a key listed
-in your Pageant Key List. An example image is&nbsp;below.</p>
+there, click the <em>“Add Key”</em> button. Navigate to your PuTTYGen <strong>private</strong>
+key and click <em>“Open”</em>. You should now have a key listed in your Pageant Key
+List. An example image is&nbsp;below.</p>
 <p><img src="/docs/guides/ssh-into-your-vm/pageantkeylist.png" alt="Pageant key List"></p>
 <p>If your key has been added to the Pageant Key List, close the&nbsp;window.</p>
 <h3 id="putty-auth">PuTTY&nbsp;Auth</h3>
 <p>Reopen PuTTY and select your Session, then click&nbsp;Load.</p>
 <p>Next, under the <em>Connection</em> menu, open up the <em><span class="caps">SSH</span></em> menu and select <em>Auth</em>.
 Enable the <em>Allow agent forwarding</em> checkbox. Under <em>Private key file for
-authentication</em>, browse to the private key you saved in Step&nbsp;2.</p>
+authentication</em>, browse to your PuTTYGen private&nbsp;key.</p>
 <p><img src="/docs/guides/ssh-into-your-vm/puttyauth.png" alt="PuTTY SSH auth"></p>
 <p>Next, Plink needs to know the explicit location of your key. So go back to
 <em>“Proxy”</em> under <em>“Connection”</em> and look for the <em>“Telnet command,
