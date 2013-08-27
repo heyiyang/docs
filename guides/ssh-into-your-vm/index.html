@@ -80,7 +80,7 @@ tutorial, as appropriate.  You will also need your Koding Username, and your <sp
 <h2 id="tutorial-steps-for-openssh-on-linux">Tutorial Steps for OpenSSH on&nbsp;Linux</h2>
 <ol>
 <li><p>First, copy your Public Key, usually found in <code>~/.ssh/id_rsa.pub</code>, and copy
-it in it&#39;s entirety! It will look something like&nbsp;this:</p>
+it in its entirety! It will look something like&nbsp;this:</p>
 <pre><code>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCyhKankDE4DRM86JqZ3JPdWDeqg+TbzlqlTLf
 OKTeokhRoMgy5WoMY/ZWUVES3d2vSHHwW3cwWlELmVdc3Ow57boZv3fOsPhybYHVRTClXYr1ncS
 xyTvjvCfvV5q22aIxHPWQ353543ssda87sa+85XEa4VnveJsEzxBZl4oJ4GB0AGa48+UdIqutrg
@@ -90,7 +90,7 @@ vyV2X foo@bar.baz</code></pre>
 </li>
 <li><p>Next, paste this entire Public Key into your <span class="caps">SSH</span> Keys section of your
 Account settings. This can be found by going to
-<a href="https://koding.com/Account">koding/Account</a> and clicking <span class="caps">SSH</span> Keys
+<a href="https://koding.com/Account">Koding/Account</a> and clicking <span class="caps">SSH</span> Keys
 under the DEVELOP. Click the Plus button on the right side of the page,
 and paste your Public Key into this. Below is a screenshot of this area
 for clarification.
@@ -108,7 +108,7 @@ code into that&nbsp;file:</p>
 done by typing: <code>ssh &lt;vm-Number&gt;.&lt;username&gt;.koding.kd.io</code>. An example,
 here is my connection command: <code>ssh vm-0.leeolayvar.koding.kd.io</code>.</p>
 <p>You will have to enter your local <span class="caps">SSH</span> password, if you chose one when you
-created your key. After that, presented with <code>username@vm-X:~$</code>, singaling
+created your key. After that, presented with <code>username@vm-X:~$</code>, signaling
 that you have connected&nbsp;successfully.</p>
 <p>This step has quite a few Gotchas so please review them&nbsp;below.</p>
 <p>Two likely gotchas, are
@@ -211,11 +211,11 @@ on the&nbsp;subject.</p>
 <h3 id="ssh_exchange_identification-/-keep-koding-open-in-browser">ssh_exchange_identification / Keep Koding Open in&nbsp;Browser</h3>
 <p>Until Always-On VMs are available, Koding will shut down your <span class="caps">VM</span> after
 approximately ~20 minutes. To ensure that you are able to connect properly
-make sure you have your Broser open <strong>and logged in</strong> to&nbsp;Koding.com.</p>
+make sure you have your browser open <strong>and logged in</strong> to&nbsp;Koding.com.</p>
 <p>If you experience the following&nbsp;error:</p>
 <pre><code>ssh_exchange_identification: Connection closed by remote host</code></pre>
 <p>Your <span class="caps">VM</span> being “off” is the most likely culprit. You can ensure it is on by
-visiting it&#39;s direct url, such as <a href="http://vm-0.username.kd.io">http://vm-0.username.kd.io</a>, and ensuring
+visiting its direct url, such as <a href="http://vm-0.username.kd.io">http://vm-0.username.kd.io</a>, and ensuring
 you are presented with your Hello World Apache response. If you receive
 an error indicating that <span class="caps">VM</span> does not exist or is not on, you should have a
 good idea why SSH is failing to&nbsp;connect.</p>
