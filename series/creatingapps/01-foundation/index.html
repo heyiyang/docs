@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/docs/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Creating Apps, Foundation - Koding Community Docs
+    </title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body class="content-wrap article-detail"><a href="https://github.com/koding/docs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <header class="header">
+      <h1>Creating Apps, Foundation</h1>
+    </header>
+    <div id="sidebar"><ul>
+<li><a href="https://koding.com/">Koding</a></li>
+<li><a href="/docs/">Home</a></li>
+<li><a href="/docs/guides/koding-overview/">Koding Overview</a></li>
+<li><a href="/docs/#frequently-asked-questions">FAQ</a></li>
+<li><a href="/docs/#feature-exploration">Feature Exploration</a></li>
+<li><a href="https://github.com/koding/docs/wiki">Wiki</a></li>
+<li><a href="https://github.com/koding/docs/issues/new">Submit an Issue</a></li>
+</ul>
+
+      <h4>Guide Links</h4>
+      <ul>
+        <li><a href="/docs/series/creatingapps/01-foundation/#video">Video</a>
+        </li>
+        <li><a href="/docs/series/creatingapps/01-foundation/#what-are-koding-apps?">What are Koding Apps?</a>
+        </li>
+      </ul>
+    </div>
+    <div id="content">
+      <article class="article">
+        <section class="content"><p>This guide will go over the foundation of what Koding Apps are, from a
+programming perspective. By the end of this, you should know how to create a
+basic hello world app. We will not explain the KDFramework in this series&nbsp;step.</p>
+<p>If you&#39;re looking for a more general example check out the
+<a href="/docs/guides/apps-overview/">Koding Apps Overview</a>.</p>
+<h2 id="video">Video</h2>
+<p><em>(Coming&nbsp;soon!)</em></p>
+<h2 id="what-are-koding-apps">What are Koding&nbsp;apps</h2>
+<p>Koding apps are essentially WebApps for your <span class="caps">VM</span>. More precisely, when you open
+a Koding App a single JavaScript file is ran on your browser. It uses the
+KDFramework to then add content to your Koding session, as well as
+communicate to your VM to&nbsp;install/save/edit/delete/etc.</p>
+<h2 id="file-structure">File&nbsp;structure</h2>
+<p>When you refresh the app list what is actually happening is Koding is looking
+for folders located in <code>~/Applications</code> with a <code>manifest.json</code> file. This
+json file contains all of the information about an application, and Koding
+uses that to load the app name, version, thumbnails,&nbsp;etc.</p>
+<p>Along with this manifest file there will be an <code>index.js</code> file which is the
+JavaScript file we mentioned earlier. This file is actually a compiled file,
+generated from the source CoffeeScript&nbsp;files.</p>
+<h2 id="creating-a-hello-world-application">Creating a Hello World&nbsp;application</h2>
+<p>As we&#39;ve seen, there are two required files that need to be created for an app
+to exist. Lets create a very stripped down version of these&nbsp;files.</p>
+<p>First, create a directory located at <code>~/Applications/hello.kdapp</code>,
+and navigate&nbsp;there.</p>
+<h3 id="manifest-file">Manifest&nbsp;File</h3>
+<p>Next, copy the contents of the following code block, and place them in a file
+called <code>manifest.json</code>.</p>
+<pre><code>{
+  &quot;name&quot;: &quot;Hello World&quot;,
+  &quot;devMode&quot;: true,
+  &quot;path&quot;: &quot;~/Applications/hello.kdapp&quot;,
+  &quot;source&quot;: {
+    &quot;blocks&quot;: {
+      &quot;app&quot;: {
+        &quot;files&quot;: [
+          &quot;./index.coffee&quot;
+        ]
+      }
+    }
+  }
+}</code></pre>
+<p>This is a stripped down manifest file. Mature apps have many additional
+flags, and before you publish you will want to include more, but this
+is about as small as we could&nbsp;get.</p>
+<p>You can place any number of source files into the <code>files</code> array, and
+each coffee file will be compiled and concatenated to the <code>index.js</code> file,
+<em>in the same order</em> that you define in your files array. It&#39;s important
+to understand the order of this compilation, as variables must be defined
+before you actually use&nbsp;them.</p>
+<h3 id="source-code">Source&nbsp;Code</h3>
+<p>Next, create a file called <code>index.coffee</code> in your app directory, and copy
+the following source code into&nbsp;it.</p>
+<pre><code>class HelloWorld extends JView
+  constructor: -&gt;
+    super
+    @hello = new KDHeaderView
+      title: &#39;Hello World!&#39;
+      type: &#39;big&#39;
+
+  pistachio: -&gt;
+    &quot;&quot;&quot;
+    {{&gt;@hello}}
+    &lt;p&gt;
+      Hello from our Hello App!
+    &lt;/p&gt;
+    &quot;&quot;&quot;
+
+do -&gt;
+  appView.addSubClass new HelloWorld()</code></pre>
+<p>Lets break down the above source. Remember, we are not trying to explain
+the framework too much, just enough to make sense of the above&nbsp;code.</p>
+<h4 id="helloworld-and-views">HelloWorld and&nbsp;Views</h4>
+<p>Views are Kodings way of programatically representing the <span class="caps">DOM</span>. Allowing you
+to define elements and modify them all from your code. In the above code,
+<code>KDHeaderView</code> will be literally compiled to <code>&lt;h1&gt;Hello World!&lt;/h1&gt;</code>. You
+can modify these views by adding css, changing their content, adding subviews,
+or even removing them entirely at a later&nbsp;time.</p>
+<p>The HelloWorld class will be what we tell Koding is our extension of a
+Koding View. You can see that it extends <code>JView</code>, which is a Koding&nbsp;View.</p>
+<h4 id="jview-and-pistachio">JView and&nbsp;Pistachio</h4>
+<p>As we mentioned, <code>JView</code> is a Koding View. It extends <code>KDView</code>,
+adding Pistachio functionality. <a href="https://github.com/phidelta/pistachio">Pistachio</a> is a templating language
+which is similar to Handlebars, and you can readup on it if you&nbsp;like.</p>
+<p>The important thing to note here, is that <code>JView</code> and Pistachio <em>are entirely
+optional</em>. I included them here to show multiple ways of adding content
+to Koding Views. I could have included the <code>KDHeaderView</code> directly and
+not used <code>JView</code> at&nbsp;all.</p>
+<h4 id="do-and-appview">Do and&nbsp;appView</h4>
+<p>The <code>do</code> usage here is a bit irrelevant, but many Coffee users forget what
+it actually <em>does</em>. <code>do -&gt;</code> simple creates a javascript closure and executes
+the given function&nbsp;immediately.</p>
+<p><code>appView</code> on the otherhand, is the real hero of this whole code. We‘ve
+explained that Koding uses views, and uses them everywhere, so it makes sense
+that we need to add our main view, to another view. That’s what <code>appView</code> is.</p>
+<p><code>appView</code> is provided in our applications scope, and we need to add our
+application to it. This can be done with the method that all Views have,
+<code>KDView.prototype.addSubView()</code>. We use it here, to add an instance of
+our <code>HelloWorld</code> class to our apps container&nbsp;view.</p>
+<h3 id="compiling">Compiling</h3>
+<p>Compiling can be done a number of ways. If you click <strong>“Refresh Apps”</strong>,
+you should see your app listed in the apps list. From there, you can hover
+over it and you will see little icons appear in the upper right, one of them
+is a compile button. Each time you make changes, click this button to recompile
+your&nbsp;app.</p>
+<p>Another way to compile is to use <code>kdc</code> tool, in your Terminal. Simply run
+<code>kdc ~/Applications/yourapp.kdapp</code> and <code>kdc</code> will compile your app. It‘s
+worth noting that if you use this method, your browser’s cached copy of
+<code>index.js</code> may need to be force cleared manually with&nbsp;F5.</p>
+<p>Lastly, as a shameless plug, i offer my compiling tool as a method to compile
+your app during development. Check out the <a href="https://github.com/leeolayvar/appaid.kdapp">AppAid Github</a> page for
+installation instructions. Once installed, open AppAid, and simply select
+your app from the list and click load. Compilation can be done automatically
+from&nbsp;there.</p>
+<h2 id="closing">Closing</h2>
+<p>You should now know what Koding Applications are made of, what they are made
+with, and how to make a basic Hello World&nbsp;application.</p>
+<p>In the next installation, we&#39;ll take this a step&nbsp;further!</p>
+</section>
+      </article>
+    </div>
+    <footer>
+      <div class="nav"><a href="">« Back to Home</a></div>
+      <section class="about"><h4 id="having-trouble,-or-is-something-outdated?">Having Trouble, or Is Something Outdated?</h4>
+<p>Koding changes quite rapidly, so if one of these guides are outdated,
+or if something just doesn&#39;t quite make sense to you, please
+<a href="https://github.com/koding/docs/issues/new">submit an issue</a> on the matter. Doing this will help me keep these guides
+up to date, and help any Koders using these guides after you. Thanks!</p>
+
+        <div class="credits"> This guide was created by <span class="author"><a href="https://github.com/leeolayvar">Lee Olayvar</a></span>
+        </div>
+      </section>
+      <section class="copy">
+        <p>created on&nbsp;<a href="https://koding.com">Koding</a>&nbsp;and powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a></p>
+      </section>
+    </footer>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-6520910-12', 'koding.github.io');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
