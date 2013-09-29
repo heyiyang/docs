@@ -117,6 +117,16 @@ and
 <a href="/docs/guides/ssh-into-your-vm/#ssh_exchange_identification-/-keep-koding-open-in-browser">Possible Gotchas: ssh_exchange_identification</a>&nbsp;below.</p>
 </li>
 </ol>
+<h3 id="alternate-id_rsa">Alternate&nbsp;id_rsa</h3>
+<p>  If you&#39;re using an alternately named <code>id_rsa</code> file, you can modify your
+  config to support this with the following&nbsp;example.</p>
+<pre><code>  Host *.kd.io
+    User &lt;username&gt;
+    IdentityFile ~/.ssh/alternate
+    ProxyCommand -i ~/.ssh/alternate ssh %r@ssh.koding.com nc %h %p</code></pre>
+<p>  Note the <code>IdentityFile ~/.ssh/alternate</code> and <code>-i ~/.ssh/alternate</code>,
+  they tell <span class="caps">SSH</span> the location of your public key, and are required. Replace
+  the file location with the location of your alternate&nbsp;key.</p>
 <h2 id="tutorial-steps-for-putty-on-windows">Tutorial Steps for PuTTY on&nbsp;Windows</h2>
 <p>For this connection method, you will need the <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY <span class="caps">SSH</span> client suite</a>:
 <code>putty.exe</code>, <code>plink.exe</code>, and <code>pageant.exe</code>.</p>

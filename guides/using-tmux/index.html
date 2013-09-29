@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/docs/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Using Tmux - Koding Community Docs
+    </title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body class="content-wrap article-detail"><a href="https://github.com/koding/docs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <header class="header">
+      <h1>Using Tmux</h1>
+    </header>
+    <div id="sidebar"><ul>
+<li><a href="https://koding.com/">Koding</a></li>
+<li><a href="/docs/">Home</a></li>
+<li><a href="/docs/guides/koding-overview/">Koding Overview</a></li>
+<li><a href="/docs/#frequently-asked-questions">FAQ</a></li>
+<li><a href="/docs/#feature-exploration">Feature Exploration</a></li>
+<li><a href="https://github.com/koding/docs/wiki">Wiki</a></li>
+<li><a href="https://github.com/koding/docs/issues/new">Submit an Issue</a></li>
+</ul>
+
+      <h4>Guide Links</h4>
+      <ul>
+        <li><a href="/docs/guides/using-tmux/#odd-behavior">Odd Behavior</a>
+        </li>
+        <li><a href="/docs/guides/using-tmux/#the-solution">The Solution</a>
+        </li>
+        <li><a href="/docs/guides/using-tmux/#but-i-love-c-b!">But i love C-b!</a>
+        </li>
+      </ul>
+    </div>
+    <div id="content">
+      <article class="article">
+        <section class="content"><p>In this Tmux <span class="caps">FAQ</span> we will address an issue people have had with Tmux on Koding.
+It&#39;s easy to deal with, but not an obvious&nbsp;workaround.</p>
+<h2 id="odd-behavior">Odd&nbsp;Behavior</h2>
+<p>When you first try and install and run tmux on Koding, it seems to load
+load properly, but many commands just don&#39;t seem to work. Some, like <code>C-b c</code>
+<em>(used to create a new window)</em> even force close the Terminal. What is going&nbsp;on?</p>
+<p>Well, Koding uses <span class="caps">GNU</span> Screen to help reconnect your Terminal sessions after
+connection issues. Koding&#39;s preconfigured Screen is set to use <code>C-b</code> as it&#39;s
+own prefix key. So when you run and use Tmux, and attempt to use <code>C-b</code>
+commands, you are actually sending commands to Screen. This explains the
+general odd behavior, as things like <code>C-b c</code> in Screen mean “close”,
+so you unintentionally logout of screen and close your&nbsp;Terminal.</p>
+<h2 id="the-solution">The&nbsp;Solution</h2>
+<p>The solution is quite simple, rebind your Tmux Prefix key. This can be
+done by creating a <code>~/.tmux.conf</code> file and placing the following command
+into&nbsp;it:</p>
+<pre><code>set-option -g prefix C-a</code></pre>
+<p>Where <code>C-a</code> is Control <em>key</em>. This sets it to Control-a, a popular alternative
+for Tmux users <em>(and the traditional Screen <span class="caps">PREFIX</span>)</em>. You can of course bind
+it to whatever you want. Once you have your <span class="caps">PREFIX</span> rebound, killall tmux
+instances and reopen, and it will run just like you expect.. just remember
+to use Control-a as your PREFIX&nbsp;:)</p>
+<h2 id="but-i-love-c-b!">But i love&nbsp;C-b!</h2>
+<p>Unfortunately, this is the way it has to be for now. A guru developer over at
+Koding did mention that they would like to make their version of screen 
+not use any keybinds, so that it does not block your input at all. So, think
+of this alternate bind as a short-term workaround, until this “issue” is&nbsp;resolved.</p>
+</section>
+      </article>
+    </div>
+    <footer>
+      <div class="nav"><a href="">« Back to Home</a></div>
+      <section class="about"><h4 id="having-trouble,-or-is-something-outdated?">Having Trouble, or Is Something Outdated?</h4>
+<p>Koding changes quite rapidly, so if one of these guides are outdated,
+or if something just doesn&#39;t quite make sense to you, please
+<a href="https://github.com/koding/docs/issues/new">submit an issue</a> on the matter. Doing this will help me keep these guides
+up to date, and help any Koders using these guides after you. Thanks!</p>
+
+        <div class="credits"> This guide was created by <span class="author"><a href="https://github.com/leeolayvar">Lee Olayvar</a></span>
+        </div>
+      </section>
+      <section class="copy">
+        <p>created on&nbsp;<a href="https://koding.com">Koding</a>&nbsp;and powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a></p>
+      </section>
+    </footer>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-6520910-12', 'koding.github.io');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

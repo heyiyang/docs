@@ -51,11 +51,11 @@ mirrors the steps&nbsp;below.</p>
 
 <h2 id="general-.htaccess-instructions">General .htaccess&nbsp;Instructions</h2>
 <h3 id="rewriteengine-&-mod_rewrite">RewriteEngine <span class="amp">&amp;</span>&nbsp;mod_rewrite</h3>
-<p>For the sake of discussion, lets say i have two Koding domains
+<p>For the sake of discussion, lets say I have two Koding domains
 <code>http://username.kd.io</code> and <code>http://my.name.is.username.kd.io</code>. How would
-i forward the first to the&nbsp;second?</p>
+I forward the first to the&nbsp;second?</p>
 <p>Htaccess makes this pretty simple. Create a .htaccess file in your Web
-directory if you don&#39;t already have one
+directory, if you don&#39;t already have one,
 <code>touch ~/Web/.htaccess &amp;&amp; chmod 644 ~/Web/.htaccess</code> and add the
 following&nbsp;RewriteRule:</p>
 <pre><code>RewriteEngine On
