@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/docs/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Subdomains and VHosts - Koding Community Docs
+    </title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body class="content-wrap article-detail"><a href="https://github.com/koding/docs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <header class="header">
+      <h1>Subdomains and VHosts</h1>
+    </header>
+    <div id="sidebar"><ul>
+<li><a href="https://koding.com/">Koding</a></li>
+<li><a href="/docs/">Home</a></li>
+<li><a href="/docs/guides/koding-overview/">Koding Overview</a></li>
+<li><a href="/docs/#frequently-asked-questions">FAQ</a></li>
+<li><a href="/docs/#feature-exploration">Feature Exploration</a></li>
+<li><a href="https://github.com/koding/docs/wiki">Wiki</a></li>
+<li><a href="https://github.com/koding/docs/issues/new">Submit an Issue</a></li>
+</ul>
+
+      <h4>Guide Links</h4>
+      <ul>
+      </ul>
+    </div>
+    <div id="content">
+      <article class="article">
+        <section class="content"><p>In this frequently asked question we&#39;ll go over setting up a Koding subdomain
+to point to a directory of your&nbsp;choice.</p>
+<h2 id="creating-subdomains">Creating&nbsp;Subdomains</h2>
+<p>Subdomains can be created from Your Environments, by clicking on the Domains
+Plus button. For further help see the <a href="/docs/guides/domain-management/">Domain Management Guide</a>.</p>
+<h2 id="creating-a-vhost">Creating a&nbsp;VHost</h2>
+<ol>
+<li><p>First, run the command
+<code>sudo touch /etc/apache2/sites-available/mysubdomain</code> where
+<code>mysubdomain</code> is the name of your&nbsp;subdomain.</p>
+</li>
+<li><p>Next, open the above file with <code>nano</code>, <code>vim</code>, or whatever command line
+editor you prefer. We&#39;re using a command line editor, because files located
+in <code>/etc/apache2/sites-available</code> are owned by <code>root</code>, and require&nbsp;sudo.</p>
+<p>As an example, the command you might be running is:
+<code>sudo nano /etc/apache2/sites-available/mysubdomain</code></p>
+</li>
+<li><p>Now that you have the file open with your preferred editor, paste in the
+following&nbsp;code:</p>
+<pre><code>&lt;Virtualhost *:80&gt;
+ServerName    mysubdomain.username.kd.io
+DocumentRoot  /var/www/myDirectory
+&lt;/Virtualhost&gt;</code></pre>
+<p>There are a two things you&#39;re going to have to change here, so lets go over&nbsp;them.</p>
+<ul>
+<li><strong>ServerName</strong>: The value of <code>ServerName</code> should be your full subdomain
+url, without the http. For example: <code>ServerName hello.leeolayvar.kd.io</code></li>
+<li><p><strong>DocumentRoot</strong>: This is the folder location that you want the subdomain
+to direct to. Remember that <code>/var/www</code> equals <code>~/Web</code>, so in the
+given example, <code>/var/www/myDirectory</code> equals <code>~/Web/myDirectory</code>.</p>
+<p><em>Note:</em> The DocumentRoot has to be an absolute path. Relative directories
+such as <code>/var/www/../foo</code> and <code>~/MyDirectory</code> will not work. If you would
+like to supply an directory <em>outside</em> of <code>~/Web</code>, use your full home
+path, eg: <code>/home/leeolayvar/myNotWebDirectory</code></p>
+</li>
+</ul>
+</li>
+<li><p>Lastly, we need to add our “site” and reload apache. Run the following
+two&nbsp;commands:</p>
+<ol>
+<li><code>sudo a2ensite mysubdomain</code></li>
+<li><code>sudo service apache2 reload</code></li>
+</ol>
+<p>Where <code>mysubdomain</code> is the name of the file you created&nbsp;before.</p>
+</li>
+</ol>
+<h2 id="confirming">Confirming</h2>
+<p>To confirm you did all the steps completely, connect to
+<code>http://mysubdomain.username.kd.io</code> and you should see whatever you have in
+your directory of&nbsp;choice.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="koding-404">Koding&nbsp;404</h3>
+<p>If you load your subdomain and you encounter a Koding page that says
+<strong>“404 - mysubdomain.username.kd.io does not exist.”</strong> then your domain is not
+linked properly to your <span class="caps">VM</span>. See <a href="/docs/guides/domain-management/">Domain Management</a> for help with&nbsp;that.</p>
+<h3 id="apache-404">Apache&nbsp;404</h3>
+<p>If you see a plain white page saying <strong>“Not Found”</strong> with mentions of
+Apache and Ubuntu, then Apache is correctly loading a directory, but the
+directory is empty. Confirm that your <code>DocumentRoot</code> is a correct, and
+<strong>absolute</strong>&nbsp;directory.</p>
+</section>
+      </article>
+    </div>
+    <footer>
+      <div class="nav"><a href="">« Back to Home</a></div>
+      <section class="about"><h4 id="having-trouble,-or-is-something-outdated?">Having Trouble, or Is Something Outdated?</h4>
+<p>Koding changes quite rapidly, so if one of these guides are outdated,
+or if something just doesn&#39;t quite make sense to you, please
+<a href="https://github.com/koding/docs/issues/new">submit an issue</a> on the matter. Doing this will help me keep these guides
+up to date, and help any Koders using these guides after you. Thanks!</p>
+
+        <div class="credits"> This guide was created by <span class="author"><a href="https://github.com/leeolayvar">Lee Olayvar</a></span>
+        </div>
+      </section>
+      <section class="copy">
+        <p>created on&nbsp;<a href="https://koding.com">Koding</a>&nbsp;and powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a></p>
+      </section>
+    </footer>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-6520910-12', 'koding.github.io');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
