@@ -123,7 +123,7 @@ and
 <pre><code>  Host *.kd.io
     User &lt;username&gt;
     IdentityFile ~/.ssh/alternate
-    ProxyCommand -i ~/.ssh/alternate ssh %r@ssh.koding.com nc %h %p</code></pre>
+    ProxyCommand ssh -i ~/.ssh/alternate %r@ssh.koding.com nc %h %p</code></pre>
 <p>  Note the <code>IdentityFile ~/.ssh/alternate</code> and <code>-i ~/.ssh/alternate</code>,
   they tell <span class="caps">SSH</span> the location of your public key, and are required. Replace
   the file location with the location of your alternate&nbsp;key.</p>
