@@ -66,10 +66,10 @@ the future we can integrate it into Koding!
 
 There are no published api docs currently, which makes development a bit
 hard. There are however, two Apps designed to help you develop Koding Apps.
-[Kodepad][2] and [Appmaker][3]. It's mostly just code examples, but it's the
-best we currently have.
+[Kodepad][2] and [Appmaker][3]. They are mostly just code examples, but they
+are the best we currently have.
 
-In the future, when i understand App Development more, i'll be making a
+In the future, when I understand App Development more, I'll be making a
 guide on the subject. Feel free to [contact me][4] if you'd like to
 contribute :)
 
